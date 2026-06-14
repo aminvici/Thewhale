@@ -6,6 +6,7 @@ import { ColophonSection } from "@/components/colophon-section"
 import { SideNav } from "@/components/side-nav"
 import { KineticBackground } from "@/components/kinetic-bg"
 import { ScrollLogo } from "@/components/scroll-logo"
+import { WhaleHero } from "@/components/whale-hero"
 
 export default function Page() {
   return (
@@ -16,7 +17,10 @@ export default function Page() {
       <div className="grid-bg fixed inset-0 opacity-20" aria-hidden="true" />
 
       <div className="relative z-10">
-        <HeroSection />
+        <div className="relative min-h-screen">
+          <WhaleHero />
+          <HeroSection />
+        </div>
         <SignalsSection />
         <WorkSection />
         <PrinciplesSection />

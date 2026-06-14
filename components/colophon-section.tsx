@@ -75,60 +75,60 @@ export function ColophonSection() {
     >
       {/* Section header */}
       <div ref={headerRef} className="mb-16">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">04 / Get Started</span>
-        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">START BUILDING</h2>
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">04 / Get in Touch</span>
+        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">ESTABLISH YOUR SEAT</h2>
       </div>
 
       {/* CTA */}
       <div className="mb-20 flex flex-col items-start gap-6">
         <p className="max-w-xl font-mono text-sm text-muted-foreground leading-relaxed">
-          Bring your data into one platform and put AI to work. Start free, scale when you&apos;re ready.
+          Join enterprises building on institutional data infrastructure. Parsmonarch is built for organizations where data finality is non-negotiable.
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <a
-            href="#"
+            href="mailto:hello@parsmonarch.com"
             className="inline-flex items-center border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200"
           >
-            Start Free
+            Contact Us
           </a>
           <a
             href="#"
             className="inline-flex items-center px-6 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
-            Book a Demo
+            Learn More
           </a>
         </div>
       </div>
 
       {/* Multi-column layout */}
       <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-12">
-        {/* Product */}
+        {/* Infrastructure */}
         <div className="col-span-1">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Product</h4>
+          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Infrastructure</h4>
           <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">Platform</li>
-            <li className="font-mono text-xs text-foreground/80">Integrations</li>
-            <li className="font-mono text-xs text-foreground/80">Pricing</li>
+            <li className="font-mono text-xs text-foreground/80">Sovereignty</li>
+            <li className="font-mono text-xs text-foreground/80">Governance</li>
+            <li className="font-mono text-xs text-foreground/80">Finality</li>
           </ul>
         </div>
 
-        {/* Solutions */}
+        {/* Institutional */}
         <div className="col-span-1">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Solutions</h4>
+          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Institutional</h4>
           <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">Analytics</li>
-            <li className="font-mono text-xs text-foreground/80">Automation</li>
             <li className="font-mono text-xs text-foreground/80">Enterprise</li>
+            <li className="font-mono text-xs text-foreground/80">Compliance</li>
+            <li className="font-mono text-xs text-foreground/80">Trust</li>
           </ul>
         </div>
 
-        {/* Developers */}
+        {/* Technical */}
         <div className="col-span-1">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Developers</h4>
+          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Technical</h4>
           <ul className="space-y-2">
             <li className="font-mono text-xs text-foreground/80">Documentation</li>
-            <li className="font-mono text-xs text-foreground/80">API Reference</li>
-            <li className="font-mono text-xs text-foreground/80">SDKs</li>
+            <li className="font-mono text-xs text-foreground/80">API</li>
+            <li className="font-mono text-xs text-foreground/80">Architecture</li>
           </ul>
         </div>
 
@@ -137,8 +137,8 @@ export function ColophonSection() {
           <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Company</h4>
           <ul className="space-y-2">
             <li className="font-mono text-xs text-foreground/80">About</li>
-            <li className="font-mono text-xs text-foreground/80">Careers</li>
-            <li className="font-mono text-xs text-foreground/80">Security</li>
+            <li className="font-mono text-xs text-foreground/80">Team</li>
+            <li className="font-mono text-xs text-foreground/80">Mission</li>
           </ul>
         </div>
 
@@ -148,10 +148,10 @@ export function ColophonSection() {
           <ul className="space-y-2">
             <li>
               <a
-                href="mailto:hello@nexus.app"
+                href="mailto:hello@parsmonarch.com"
                 className="font-mono text-xs text-foreground/80 hover:text-accent transition-colors duration-200"
               >
-                Email
+                hello@parsmonarch.com
               </a>
             </li>
             <li>
@@ -165,12 +165,12 @@ export function ColophonSection() {
           </ul>
         </div>
 
-        {/* Status */}
+        {/* Founders */}
         <div className="col-span-1">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Status</h4>
+          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Founded</h4>
           <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">All Systems Go</li>
-            <li className="font-mono text-xs text-foreground/80">SOC 2 Type II</li>
+            <li className="font-mono text-xs text-foreground/80">Sami Johnson</li>
+            <li className="font-mono text-xs text-foreground/80">Co-Founder & CEO</li>
           </ul>
         </div>
       </div>
@@ -181,9 +181,9 @@ export function ColophonSection() {
         className="mt-24 pt-8 border-t border-border/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
       >
         <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
-          © 2026 NEXUS. All rights reserved.
+          © 2026 Parsmonarch. All rights reserved.
         </p>
-        <p className="font-mono text-[10px] text-muted-foreground">Your data, unified. Decisions, automated.</p>
+        <p className="font-mono text-[10px] text-muted-foreground">Institutional finality. Cryptographic certainty.</p>
       </div>
     </section>
   )

@@ -18,9 +18,9 @@ const ibmPlexMono = IBM_Plex_Mono({
 const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas" })
 
 export const metadata: Metadata = {
-  title: "NEXUS — The Operating System for Your Data",
+  title: "PARSMONARCH — Institutional Data Sovereignty",
   description:
-    "Unify, automate, and act on your data in one AI-native platform. Turn raw signals into decisions, at scale.",
+    "Where enterprises settle their data in absolute certainty. Cryptographically governed infrastructure for institutional finality. By Sami Johnson.",
   generator: "v0.app",
   icons: {
     icon: [

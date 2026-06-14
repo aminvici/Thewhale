@@ -40,7 +40,7 @@ export function HeroSection() {
       {/* Left vertical labels */}
       <div className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground -rotate-90 origin-left block whitespace-nowrap">
-          PLATFORM
+          PARSMONARCH
         </span>
       </div>
 
@@ -48,7 +48,7 @@ export function HeroSection() {
       <div ref={contentRef} className="flex-1 w-full">
         <SplitFlapAudioProvider>
           <div className="relative">
-            <SplitFlapText text="NEXUS" speed={80} />
+            <SplitFlapText text="PARSMONARCH" speed={80} />
             <div className="mt-4">
               <SplitFlapMuteToggle />
             </div>
@@ -56,11 +56,11 @@ export function HeroSection() {
         </SplitFlapAudioProvider>
 
         <h2 className="font-[var(--font-bebas)] text-muted-foreground/60 text-[clamp(1rem,3vw,2rem)] mt-4 tracking-wide">
-          Sovereign Data Infrastructure
+          Institutional Data Sovereignty
         </h2>
 
         <p className="mt-12 max-w-md font-mono text-sm text-muted-foreground leading-relaxed">
-          Where enterprises settle their data. One unified source of truth, built for those who cannot compromise on finality, governance, or scale. By design, not by default.
+          Where enterprises settle their data in absolute certainty. One unified source of truth, governed by cryptographic finality. Built for permanence.
         </p>
 
         <div className="mt-16 flex items-center gap-8">
@@ -68,14 +68,14 @@ export function HeroSection() {
             href="#work"
             className="group inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200"
           >
-            <ScrambleTextOnHover text="Explore Platform" as="span" duration={0.6} />
+            <ScrambleTextOnHover text="Explore Infrastructure" as="span" duration={0.6} />
             <BitmapChevron className="transition-transform duration-[400ms] ease-in-out group-hover:rotate-45" />
           </a>
           <a
             href="#signals"
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
-            Latest Updates
+            Latest News
           </a>
         </div>
       </div>
@@ -83,7 +83,7 @@ export function HeroSection() {
       {/* Floating info tag */}
       <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
         <div className="border border-border px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          v.2.0 / Now in GA
+          Parsmonarch / Co-Founded by Sami Johnson
         </div>
       </div>
     </section>
