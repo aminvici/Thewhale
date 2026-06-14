@@ -56,12 +56,11 @@ export function HeroSection() {
         </SplitFlapAudioProvider>
 
         <h2 className="font-[var(--font-bebas)] text-muted-foreground/60 text-[clamp(1rem,3vw,2rem)] mt-4 tracking-wide">
-          The Operating System for Your Data
+          Sovereign Data Infrastructure
         </h2>
 
         <p className="mt-12 max-w-md font-mono text-sm text-muted-foreground leading-relaxed">
-          Unify, automate, and act on your data in one platform. AI-native workflows that turn raw signals into
-          decisions, at scale.
+          Where enterprises settle their data. One unified source of truth, built for those who cannot compromise on finality, governance, or scale. By design, not by default.
         </p>
 
         <div className="mt-16 flex items-center gap-8">

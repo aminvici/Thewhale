@@ -4,12 +4,16 @@ import { WorkSection } from "@/components/work-section"
 import { PrinciplesSection } from "@/components/principles-section"
 import { ColophonSection } from "@/components/colophon-section"
 import { SideNav } from "@/components/side-nav"
+import { KineticBackground } from "@/components/kinetic-bg"
+import { ScrollLogo } from "@/components/scroll-logo"
 
 export default function Page() {
   return (
     <main className="relative min-h-screen">
+      <KineticBackground />
+      <ScrollLogo />
       <SideNav />
-      <div className="grid-bg fixed inset-0 opacity-30" aria-hidden="true" />
+      <div className="grid-bg fixed inset-0 opacity-20" aria-hidden="true" />
 
       <div className="relative z-10">
         <HeroSection />

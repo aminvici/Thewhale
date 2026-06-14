@@ -16,37 +16,37 @@ export function PrinciplesSection() {
     {
       number: "01",
       titleParts: [
-        { text: "ONE", highlight: true },
-        { text: " SOURCE OF TRUTH", highlight: false },
+        { text: "FINALITY", highlight: true },
+        { text: " IN SIMPLICITY", highlight: false },
       ],
-      description: "Every team works from the same governed data. No more conflicting spreadsheets.",
+      description: "One unified platform. No integration spreadsheets, no reconciliation delays. Your data settles once, across all systems.",
       align: "left",
     },
     {
       number: "02",
       titleParts: [
-        { text: "AI", highlight: true },
-        { text: " THAT ACTS", highlight: false },
+        { text: "INTELLIGENCE ", highlight: false },
+        { text: "AT SPEED", highlight: true },
       ],
-      description: "Move beyond dashboards. Turn insights into automated actions across your stack.",
+      description: "AI-driven insights that execute. From raw signals to governed decisions in real time. No human bottleneck.",
       align: "right",
     },
     {
       number: "03",
       titleParts: [
-        { text: "ENTERPRISE ", highlight: false },
-        { text: "SECURE", highlight: true },
+        { text: "SOVEREIGN ", highlight: false },
+        { text: "CONTROL", highlight: true },
       ],
-      description: "SOC 2, granular access, and full audit trails. Compliance built in, not bolted on.",
+      description: "Your data, your rules, your compliance. Cryptographic certainty meets institutional governance. SOC 2, FedRAMP-ready, built for permanence.",
       align: "left",
     },
     {
       number: "04",
       titleParts: [
         { text: "BUILT TO ", highlight: false },
-        { text: "SCALE", highlight: true },
+        { text: "OUTLAST", highlight: true },
       ],
-      description: "From your first pipeline to billions of rows. Performance that grows with you.",
+      description: "Infrastructure designed for decades, not quarters. From initial pipeline to petabyte scale. No technical debt.",
       align: "right",
     },
   ]
@@ -93,8 +93,8 @@ export function PrinciplesSection() {
     <section ref={sectionRef} id="principles" className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12">
       {/* Section header */}
       <div ref={headerRef} className="mb-24">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">03 / Why NEXUS</span>
-        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">WHY TEAMS SWITCH</h2>
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">03 / The Standard</span>
+        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">HELD TO A DIFFERENT MEASURE</h2>
       </div>
 
       {/* Staggered principles */}
