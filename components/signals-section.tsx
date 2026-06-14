@@ -9,29 +9,29 @@ gsap.registerPlugin(ScrollTrigger)
 
 const signals = [
   {
-    date: "2025.06.10",
-    title: "Signal Field",
-    note: "New interface paradigm for ambient computing environments.",
+    date: "2026.06.10",
+    title: "AI Copilot",
+    note: "Ask questions in natural language and get governed answers across every connected source.",
   },
   {
-    date: "2025.05.28",
-    title: "Silent Agent",
-    note: "Orchestration layer for autonomous design systems.",
+    date: "2026.05.28",
+    title: "Realtime Sync",
+    note: "Sub-second pipelines keep dashboards and models fresh as new data lands.",
   },
   {
-    date: "2025.05.15",
-    title: "Noir Grid",
-    note: "Typographic system for editorial interfaces.",
+    date: "2026.05.15",
+    title: "Workflow Studio",
+    note: "Drag-and-drop automation builder with branching logic and approvals.",
   },
   {
-    date: "2025.04.30",
-    title: "Project Lattice",
-    note: "Structural framework for adaptive layouts.",
+    date: "2026.04.30",
+    title: "Access Controls",
+    note: "Row-level permissions and audit trails for enterprise compliance.",
   },
   {
-    date: "2025.04.12",
-    title: "Echo Chamber",
-    note: "Audio-visual synthesis in browser environments.",
+    date: "2026.04.12",
+    title: "Open Connectors",
+    note: "200+ native integrations plus a typed SDK for anything custom.",
   },
 ]
 
@@ -135,7 +135,7 @@ export function SignalsSection() {
 
       {/* Section header */}
       <div ref={headerRef} className="mb-16 pr-6 md:pr-12">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">01 / Signals</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">01 / Updates</span>
         <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">WHAT&apos;S NEW</h2>
       </div>
 

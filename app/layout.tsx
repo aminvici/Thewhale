@@ -18,9 +18,9 @@ const ibmPlexMono = IBM_Plex_Mono({
 const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas" })
 
 export const metadata: Metadata = {
-  title: "SIGNAL — Experimental Creative Studio",
+  title: "NEXUS — The Operating System for Your Data",
   description:
-    "Interface studies in controlled environments. We design systems that behave, not just screens that display.",
+    "Unify, automate, and act on your data in one AI-native platform. Turn raw signals into decisions, at scale.",
   generator: "v0.app",
   icons: {
     icon: [

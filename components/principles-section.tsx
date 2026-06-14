@@ -16,37 +16,37 @@ export function PrinciplesSection() {
     {
       number: "01",
       titleParts: [
-        { text: "INTERFACE", highlight: true },
-        { text: " MINIMALISM", highlight: false },
+        { text: "ONE", highlight: true },
+        { text: " SOURCE OF TRUTH", highlight: false },
       ],
-      description: "Reduce until only the essential remains. Every element earns its place.",
+      description: "Every team works from the same governed data. No more conflicting spreadsheets.",
       align: "left",
     },
     {
       number: "02",
       titleParts: [
-        { text: "SYSTEMS", highlight: true },
-        { text: " OVER SCREENS", highlight: false },
+        { text: "AI", highlight: true },
+        { text: " THAT ACTS", highlight: false },
       ],
-      description: "Design behaviors, not just layouts. Build logic that scales.",
+      description: "Move beyond dashboards. Turn insights into automated actions across your stack.",
       align: "right",
     },
     {
       number: "03",
       titleParts: [
-        { text: "CONTROLLED ", highlight: false },
-        { text: "TENSION", highlight: true },
+        { text: "ENTERPRISE ", highlight: false },
+        { text: "SECURE", highlight: true },
       ],
-      description: "Balance between restraint and expression. Confidence without excess.",
+      description: "SOC 2, granular access, and full audit trails. Compliance built in, not bolted on.",
       align: "left",
     },
     {
       number: "04",
       titleParts: [
-        { text: "SIGNAL ", highlight: false },
-        { text: "CLARITY", highlight: true },
+        { text: "BUILT TO ", highlight: false },
+        { text: "SCALE", highlight: true },
       ],
-      description: "Communication that cuts through noise. Precision in every interaction.",
+      description: "From your first pipeline to billions of rows. Performance that grows with you.",
       align: "right",
     },
   ]
@@ -93,8 +93,8 @@ export function PrinciplesSection() {
     <section ref={sectionRef} id="principles" className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12">
       {/* Section header */}
       <div ref={headerRef} className="mb-24">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">03 / Principles</span>
-        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">HOW WE WORK</h2>
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">03 / Why NEXUS</span>
+        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">WHY TEAMS SWITCH</h2>
       </div>
 
       {/* Staggered principles */}
