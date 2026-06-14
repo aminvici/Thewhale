@@ -166,11 +166,15 @@ export function ColophonSection() {
         </div>
 
         {/* Founders */}
-        <div className="col-span-1">
+        <div className="col-span-1 md:col-span-2">
           <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Founded</h4>
-          <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">Sami Johnson</li>
-            <li className="font-mono text-xs text-foreground/80">Co-Founder & CEO</li>
+          <ul className="space-y-3">
+            <li className="font-[var(--font-bebas)] text-lg md:text-2xl text-foreground font-bold tracking-tight">
+              Sami Johnson
+            </li>
+            <li className="font-mono text-sm md:text-base text-accent font-semibold uppercase tracking-widest">
+              Co-Founder & CEO
+            </li>
           </ul>
         </div>
       </div>

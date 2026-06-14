@@ -1,13 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 const navItems = [
   { id: "hero", label: "Home" },
   { id: "signals", label: "Updates" },
   { id: "work", label: "Platform" },
-  { id: "principles", label: "Why NEXUS" },
+  { id: "principles", label: "Why Parsmonarch" },
   { id: "colophon", label: "Get Started" },
 ]
 
@@ -42,8 +43,21 @@ export function SideNav() {
   }
 
   return (
-    <nav className="fixed left-0 top-0 z-50 h-screen w-16 md:w-20 hidden md:flex flex-col justify-center border-r border-border/30 bg-background/80 backdrop-blur-sm">
-      <div className="flex flex-col gap-6 px-4">
+    <nav className="fixed left-0 top-0 z-50 h-screen w-16 md:w-20 hidden md:flex flex-col border-r border-border/30 bg-background/80 backdrop-blur-sm">
+      {/* Logo at top */}
+      <div className="flex items-center justify-center pt-6 pb-8 border-b border-border/30">
+        <Image
+          src="/parsmonarch-logo.png"
+          alt="Parsmonarch"
+          width={40}
+          height={40}
+          className="w-10 h-10 opacity-90 hover:opacity-100 transition-opacity"
+          priority
+        />
+      </div>
+
+      {/* Navigation items */}
+      <div className="flex flex-col gap-6 px-4 flex-1 justify-center">
         {navItems.map(({ id, label }) => (
           <button key={id} onClick={() => scrollToSection(id)} className="group relative flex items-center gap-3">
             <span
