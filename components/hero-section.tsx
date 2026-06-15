@@ -56,26 +56,26 @@ export function HeroSection() {
         </SplitFlapAudioProvider>
 
         <h2 className="font-[var(--font-bebas)] text-muted-foreground/60 text-[clamp(1rem,3vw,2rem)] mt-4 tracking-wide">
-          Institutional Data Sovereignty
+          Private Institutional Infrastructure
         </h2>
 
         <p className="mt-12 max-w-md font-mono text-sm text-muted-foreground leading-relaxed">
-          Where enterprises settle their data in absolute certainty. One unified source of truth, governed by cryptographic finality. Built for permanence.
+          Where empires settle. Infrastructure for those who cannot settle for less.
         </p>
 
         <div className="mt-16 flex items-center gap-8">
           <a
-            href="#work"
+            href="#colophon"
             className="group inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200"
           >
-            <ScrambleTextOnHover text="Explore Infrastructure" as="span" duration={0.6} />
+            <ScrambleTextOnHover text="Begin A Conversation" as="span" duration={0.6} />
             <BitmapChevron className="transition-transform duration-[400ms] ease-in-out group-hover:rotate-45" />
           </a>
           <a
-            href="#signals"
+            href="#work"
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
-            Latest News
+            Explore Settlement Path
           </a>
         </div>
       </div>

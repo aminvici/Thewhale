@@ -1,58 +1,46 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
-import { cn } from "@/lib/utils"
+import { useRef, useEffect } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
-const experiments = [
+const settlementFlow = [
   {
-    title: "Unified Data",
-    medium: "Ingestion",
-    description: "Connect warehouses, apps, and streams into one governed source of truth.",
-    span: "col-span-2 row-span-2",
+    phase: "01",
+    title: "Institutional Qualification",
+    description: "Mandate, jurisdiction, and governance profile are evaluated before technical onboarding.",
   },
   {
-    title: "AI Copilot",
-    medium: "Intelligence",
-    description: "Natural-language answers grounded in your live, permissioned data.",
-    span: "col-span-1 row-span-1",
+    phase: "02",
+    title: "Fabric Domain Entry",
+    description: "Permissioned records are established in HyperLedger Fabric under institution-specific policy controls.",
   },
   {
-    title: "Automations",
-    medium: "Workflows",
-    description: "Trigger actions across your stack when conditions are met.",
-    span: "col-span-1 row-span-2",
+    phase: "03",
+    title: "Bridge Authorization",
+    description: "Cross-ledger movement is approved through deterministic bridge rules and cryptographic verification.",
   },
   {
-    title: "Live Dashboards",
-    medium: "Analytics",
-    description: "Realtime metrics your whole team can build and share.",
-    span: "col-span-1 row-span-1",
+    phase: "04",
+    title: "XRPL Final Settlement",
+    description: "State transitions settle to XRPL with timestamped finality and immutable audit trace.",
   },
   {
-    title: "Governance",
-    medium: "Security",
-    description: "Granular access controls, audit logs, and SOC 2 compliance built in.",
-    span: "col-span-2 row-span-1",
-  },
-  {
-    title: "Developer API",
-    medium: "Extensibility",
-    description: "A typed SDK and webhooks to extend the platform anywhere.",
-    span: "col-span-1 row-span-1",
+    phase: "05",
+    title: "Policy Continuity",
+    description: "Operational governance, retention, and compliance controls remain continuously enforced post-settlement.",
   },
 ]
 
 export function WorkSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
-  const gridRef = useRef<HTMLDivElement>(null)
+  const flowRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!sectionRef.current || !headerRef.current || !gridRef.current) return
+    if (!sectionRef.current || !headerRef.current || !flowRef.current) return
 
     const ctx = gsap.context(() => {
       // Header slide in from left
@@ -72,17 +60,17 @@ export function WorkSection() {
         },
       )
 
-      const cards = gridRef.current?.querySelectorAll("article")
-      if (cards && cards.length > 0) {
-        gsap.set(cards, { y: 60, opacity: 0 })
-        gsap.to(cards, {
+      const rows = flowRef.current?.querySelectorAll("article")
+      if (rows && rows.length > 0) {
+        gsap.set(rows, { y: 40, opacity: 0 })
+        gsap.to(rows, {
           y: 0,
           opacity: 1,
-          duration: 0.8,
-          stagger: 0.1,
+          duration: 0.7,
+          stagger: 0.12,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: gridRef.current,
+            trigger: flowRef.current,
             start: "top 90%",
             toggleActions: "play none none reverse",
           },
@@ -94,131 +82,48 @@ export function WorkSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="work" className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12">
+    <section ref={sectionRef} id="work" className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 overflow-hidden">
+      {/* Background image with overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/exp/parsmonarch_redesign.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          opacity: 0.20,
+        }}
+      />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/20 via-background/60 to-background" />
+
       {/* Section header */}
-      <div ref={headerRef} className="mb-16 flex items-end justify-between">
+      <div ref={headerRef} className="relative z-10 mb-16 flex items-end justify-between">
         <div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">02 / Capabilities</span>
-          <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">THE PLATFORM</h2>
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">02 / Protocol Bridge</span>
+          <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">SETTLEMENT PATH</h2>
         </div>
         <p className="hidden md:block max-w-xs font-mono text-xs text-muted-foreground text-right leading-relaxed">
-          One connected system for ingestion, intelligence, automation, and governance.
+          HyperLedger Fabric to XRPL, sequenced under institutional policy from entry to finality.
         </p>
       </div>
 
-      {/* Asymmetric grid */}
-      <div
-        ref={gridRef}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[200px]"
-      >
-        {experiments.map((experiment, index) => (
-          <WorkCard key={index} experiment={experiment} index={index} persistHover={index === 0} />
+      <div ref={flowRef} className="relative z-10 border-t border-border/30">
+        {settlementFlow.map((step, index) => (
+          <article key={step.phase} className="grid grid-cols-12 gap-4 md:gap-8 py-6 md:py-8 border-b border-border/30">
+            <div className="col-span-2 md:col-span-1 font-mono text-[10px] uppercase tracking-[0.3em] text-accent/90 pt-1">
+              {step.phase}
+            </div>
+
+            <div className="col-span-10 md:col-span-4">
+              <h3 className="font-[var(--font-bebas)] text-3xl md:text-4xl tracking-tight leading-none">{step.title}</h3>
+            </div>
+
+            <p className="col-span-12 md:col-span-7 font-mono text-xs md:text-sm text-muted-foreground leading-relaxed md:pt-1">
+              {step.description}
+            </p>
+          </article>
         ))}
       </div>
     </section>
-  )
-}
-
-function WorkCard({
-  experiment,
-  index,
-  persistHover = false,
-}: {
-  experiment: {
-    title: string
-    medium: string
-    description: string
-    span: string
-  }
-  index: number
-  persistHover?: boolean
-}) {
-  const [isHovered, setIsHovered] = useState(false)
-  const cardRef = useRef<HTMLElement>(null)
-  const [isScrollActive, setIsScrollActive] = useState(false)
-
-  useEffect(() => {
-    if (!persistHover || !cardRef.current) return
-
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: cardRef.current,
-        start: "top 80%",
-        onEnter: () => setIsScrollActive(true),
-      })
-    }, cardRef)
-
-    return () => ctx.revert()
-  }, [persistHover])
-
-  const isActive = isHovered || isScrollActive
-
-  return (
-    <article
-      ref={cardRef}
-      className={cn(
-        "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden",
-        experiment.span,
-        isActive && "border-accent/60",
-      )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Background layer */}
-      <div
-        className={cn(
-          "absolute inset-0 bg-accent/5 transition-opacity duration-500",
-          isActive ? "opacity-100" : "opacity-0",
-        )}
-      />
-
-      {/* Content */}
-      <div className="relative z-10">
-        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          {experiment.medium}
-        </span>
-        <h3
-          className={cn(
-            "mt-3 font-[var(--font-bebas)] text-2xl md:text-4xl tracking-tight transition-colors duration-300",
-            isActive ? "text-accent" : "text-foreground",
-          )}
-        >
-          {experiment.title}
-        </h3>
-      </div>
-
-      {/* Description - reveals on hover */}
-      <div className="relative z-10">
-        <p
-          className={cn(
-            "font-mono text-xs text-muted-foreground leading-relaxed transition-all duration-500 max-w-[280px]",
-            isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
-          )}
-        >
-          {experiment.description}
-        </p>
-      </div>
-
-      {/* Index marker */}
-      <span
-        className={cn(
-          "absolute bottom-4 right-4 font-mono text-[10px] transition-colors duration-300",
-          isActive ? "text-accent" : "text-muted-foreground/40",
-        )}
-      >
-        {String(index + 1).padStart(2, "0")}
-      </span>
-
-      {/* Corner line */}
-      <div
-        className={cn(
-          "absolute top-0 right-0 w-12 h-12 transition-all duration-500",
-          isActive ? "opacity-100" : "opacity-0",
-        )}
-      >
-        <div className="absolute top-0 right-0 w-full h-[1px] bg-accent" />
-        <div className="absolute top-0 right-0 w-[1px] h-full bg-accent" />
-      </div>
-    </article>
   )
 }

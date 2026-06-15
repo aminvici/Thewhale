@@ -71,22 +71,37 @@ export function ColophonSection() {
     <section
       ref={sectionRef}
       id="colophon"
-      className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30"
+      className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30 overflow-hidden"
     >
+      {/* Gradient background with accent glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(ellipse 900px 600px at 50% 0%, rgba(201, 168, 76, 0.14) 0%, transparent 70%),
+              radial-gradient(circle 700px at 10% 80%, rgba(0, 220, 200, 0.11) 0%, transparent 100%),
+              radial-gradient(circle 600px at 90% 40%, rgba(100, 140, 200, 0.09) 0%, transparent 100%)
+            `,
+          }}
+        />
+      </div>
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/20 via-transparent to-background/40" />
+
       {/* Section header */}
-      <div ref={headerRef} className="mb-16">
+      <div ref={headerRef} className="relative z-10 mb-16">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">04 / Get in Touch</span>
         <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">ESTABLISH YOUR SEAT</h2>
       </div>
 
       {/* CTA */}
-      <div className="mb-20 flex flex-col items-start gap-6">
+      <div className="relative z-10 mb-20 flex flex-col items-start gap-6">
         <p className="max-w-xl font-mono text-sm text-muted-foreground leading-relaxed">
           Join enterprises building on institutional data infrastructure. Parsmonarch is built for organizations where data finality is non-negotiable.
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <a
-            href="mailto:hello@parsmonarch.com"
+            href="mailto:contact@parsmonarch.com"
             className="inline-flex items-center border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200"
           >
             Contact Us
@@ -100,8 +115,25 @@ export function ColophonSection() {
         </div>
       </div>
 
+      {/* Founder statement */}
+      <div className="relative z-10 mb-20 grid gap-8 rounded-2xl border border-border/40 bg-background/70 p-6 md:grid-cols-[1.4fr_0.9fr] md:p-10 backdrop-blur-sm">
+        <div className="space-y-5">
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">Founder Note</span>
+          <p className="max-w-4xl font-[var(--font-bebas)] text-3xl md:text-5xl tracking-tight leading-[1.08] text-foreground">
+            We did not build for this cycle, nor the next. We laid the floor that sovereign institutions will still be standing on a century from now.
+          </p>
+        </div>
+        <div className="flex flex-col justify-end border-t border-border/30 pt-5 md:border-t-0 md:border-l md:pt-0 md:pl-8">
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Sami Johnson</p>
+          <p className="mt-2 font-mono text-xs uppercase tracking-[0.22em] text-accent">Co-Founder & CEO</p>
+          <p className="mt-6 font-mono text-xs leading-relaxed text-muted-foreground">
+            Parsmonarch is built for qualified institutional entities that require permanence, discretion, and governed settlement.
+          </p>
+        </div>
+      </div>
+
       {/* Multi-column layout */}
-      <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-12">
+      <div ref={gridRef} className="relative z-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-12">
         {/* Infrastructure */}
         <div className="col-span-1">
           <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Infrastructure</h4>
@@ -148,10 +180,10 @@ export function ColophonSection() {
           <ul className="space-y-2">
             <li>
               <a
-                href="mailto:hello@parsmonarch.com"
+                href="mailto:contact@parsmonarch.com"
                 className="font-mono text-xs text-foreground/80 hover:text-accent transition-colors duration-200"
               >
-                hello@parsmonarch.com
+                contact@parsmonarch.com
               </a>
             </li>
             <li>
@@ -163,6 +195,18 @@ export function ColophonSection() {
               </a>
             </li>
           </ul>
+        </div>
+
+        {/* Business */}
+        <div className="col-span-1 md:col-span-2">
+          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Business Address</h4>
+          <address className="not-italic font-mono text-xs leading-relaxed text-foreground/80">
+            Market St
+            <br />
+            San Francisco, CA 94105
+            <br />
+            US
+          </address>
         </div>
 
         {/* Founders */}
@@ -182,7 +226,7 @@ export function ColophonSection() {
       {/* Bottom copyright */}
       <div
         ref={footerRef}
-        className="mt-24 pt-8 border-t border-border/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+        className="relative z-10 mt-24 pt-8 border-t border-border/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
       >
         <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
           © 2026 Parsmonarch. All rights reserved.

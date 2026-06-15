@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils"
 
 const navItems = [
   { id: "hero", label: "Home" },
-  { id: "signals", label: "Updates" },
-  { id: "work", label: "Platform" },
+  { id: "signals", label: "Manifesto" },
+  { id: "work", label: "Settlement Path" },
   { id: "principles", label: "Why Parsmonarch" },
   { id: "colophon", label: "Get Started" },
 ]
@@ -16,23 +16,38 @@ export function SideNav() {
   const [activeSection, setActiveSection] = useState("hero")
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
-        })
-      },
-      { threshold: 0.3 },
-    )
+    const getSectionElements = () =>
+      navItems
+        .map(({ id }) => document.getElementById(id))
+        .filter((el): el is HTMLElement => Boolean(el))
 
-    navItems.forEach(({ id }) => {
-      const element = document.getElementById(id)
-      if (element) observer.observe(element)
-    })
+    const updateActiveSection = () => {
+      const sections = getSectionElements()
+      if (sections.length === 0) return
 
-    return () => observer.disconnect()
+      const viewportAnchor = window.innerHeight * 0.35
+
+      // Keep section progression stable by selecting the last section that has crossed the anchor.
+      let nextActive = sections[0].id
+
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect()
+        if (rect.top <= viewportAnchor) {
+          nextActive = section.id
+        }
+      }
+
+      setActiveSection(nextActive)
+    }
+
+    updateActiveSection()
+    window.addEventListener("scroll", updateActiveSection, { passive: true })
+    window.addEventListener("resize", updateActiveSection)
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection)
+      window.removeEventListener("resize", updateActiveSection)
+    }
   }, [])
 
   const scrollToSection = (id: string) => {

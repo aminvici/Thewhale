@@ -9,37 +9,36 @@ gsap.registerPlugin(ScrollTrigger)
 
 const signals = [
   {
-    date: "2026.06.10",
-    title: "AI Copilot",
-    note: "Ask questions in natural language and get governed answers across every connected source.",
+    date: "01",
+    title: "Private Blockchain Infrastructure",
+    note: "Parsmonarch operates sovereign settlement rails for qualified institutions only.",
   },
   {
-    date: "2026.05.28",
-    title: "Realtime Sync",
-    note: "Sub-second pipelines keep dashboards and models fresh as new data lands.",
+    date: "02",
+    title: "By Appointment Only",
+    note: "Access is extended by invitation. No public onboarding, no self-service funnel.",
   },
   {
-    date: "2026.05.15",
-    title: "Workflow Studio",
-    note: "Drag-and-drop automation builder with branching logic and approvals.",
+    date: "03",
+    title: "Not A Consumer Product",
+    note: "No free plan, no tokenized hype, no public wallet behavior. Institutional infrastructure only.",
   },
   {
-    date: "2026.04.30",
-    title: "Access Controls",
-    note: "Row-level permissions and audit trails for enterprise compliance.",
+    date: "04",
+    title: "Permanence Over Velocity",
+    note: "Built for decade-scale continuity, governed policy, and operational restraint.",
   },
   {
-    date: "2026.04.12",
-    title: "Open Connectors",
-    note: "200+ native integrations plus a typed SDK for anything custom.",
+    date: "05",
+    title: "Qualified Institutional Enquiries",
+    note: "Engagement begins through private review and mandate alignment.",
   },
 ]
 
 export function SignalsSection() {
-  const scrollRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
-  const cardsRef = useRef<HTMLDivElement>(null)
+  const rowsRef = useRef<HTMLDivElement>(null)
   const cursorRef = useRef<HTMLDivElement>(null)
   const [isHovering, setIsHovering] = useState(false)
 
@@ -77,7 +76,7 @@ export function SignalsSection() {
   }, [])
 
   useEffect(() => {
-    if (!sectionRef.current || !headerRef.current || !cardsRef.current) return
+    if (!sectionRef.current || !headerRef.current || !rowsRef.current) return
 
     const ctx = gsap.context(() => {
       // Header slide in from left
@@ -97,19 +96,19 @@ export function SignalsSection() {
         },
       )
 
-      const cards = cardsRef.current?.querySelectorAll("article")
-      if (cards) {
+      const rows = rowsRef.current?.querySelectorAll("article")
+      if (rows) {
         gsap.fromTo(
-          cards,
-          { x: -100, opacity: 0 },
+          rows,
+          { y: 36, opacity: 0 },
           {
-            x: 0,
+            y: 0,
             opacity: 1,
-            duration: 0.8,
-            stagger: 0.2,
+            duration: 0.7,
+            stagger: 0.12,
             ease: "power3.out",
             scrollTrigger: {
-              trigger: cardsRef.current,
+              trigger: rowsRef.current,
               start: "top 90%",
               toggleActions: "play none none reverse",
             },
@@ -122,7 +121,20 @@ export function SignalsSection() {
   }, [])
 
   return (
-    <section id="signals" ref={sectionRef} className="relative py-32 pl-6 md:pl-28">
+    <section id="signals" ref={sectionRef} className="relative py-32 pl-6 md:pl-28 overflow-hidden">
+      {/* Background image with overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/exp/parsmonarch_founder_page.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          opacity: 0.22,
+        }}
+      />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-background/40 to-background" />
+
       <div
         ref={cursorRef}
         className={cn(
@@ -134,22 +146,17 @@ export function SignalsSection() {
       />
 
       {/* Section header */}
-      <div ref={headerRef} className="mb-16 pr-6 md:pr-12">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">01 / Updates</span>
-        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">WHAT&apos;S NEW</h2>
+      <div ref={headerRef} className="relative z-10 mb-16 pr-6 md:pr-12">
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">01 / Manifesto</span>
+        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">BY APPOINTMENT ONLY</h2>
+        <p className="mt-4 max-w-2xl font-mono text-xs md:text-sm text-muted-foreground leading-relaxed">
+          Not a product. Not a platform. Infrastructure for institutions where settlement certainty is non-negotiable.
+        </p>
       </div>
 
-      {/* Horizontal scroll container */}
-      <div
-        ref={(el) => {
-          scrollRef.current = el
-          cardsRef.current = el
-        }}
-        className="flex gap-8 overflow-x-auto pb-8 pr-12 scrollbar-hide"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        {signals.map((signal, index) => (
-          <SignalCard key={index} signal={signal} index={index} />
+      <div ref={rowsRef} className="relative z-10 pr-6 md:pr-12 border-t border-border/30">
+        {signals.map((signal) => (
+          <SignalCard key={signal.date} signal={signal} />
         ))}
       </div>
     </section>
@@ -158,51 +165,22 @@ export function SignalsSection() {
 
 function SignalCard({
   signal,
-  index,
 }: {
   signal: { date: string; title: string; note: string }
-  index: number
 }) {
   return (
-    <article
-      className={cn(
-        "group relative flex-shrink-0 w-80",
-        "transition-transform duration-500 ease-out",
-        "hover:-translate-y-2",
-      )}
-    >
-      {/* Card with paper texture effect */}
-      <div className="relative bg-card border border-border/50 md:border-t md:border-l md:border-r-0 md:border-b-0 p-8">
-        {/* Top torn edge effect */}
-        <div className="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
-
-        {/* Issue number - editorial style */}
-        <div className="flex items-baseline justify-between mb-8">
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-            No. {String(index + 1).padStart(2, "0")}
-          </span>
-          <time className="font-mono text-[10px] text-muted-foreground/60">{signal.date}</time>
-        </div>
-
-        {/* Title */}
-        <h3 className="font-[var(--font-bebas)] text-4xl tracking-tight mb-4 group-hover:text-accent transition-colors duration-300">
-          {signal.title}
-        </h3>
-
-        {/* Divider line */}
-        <div className="w-12 h-px bg-accent/60 mb-6 group-hover:w-full transition-all duration-500" />
-
-        {/* Description */}
-        <p className="font-mono text-xs text-muted-foreground leading-relaxed">{signal.note}</p>
-
-        {/* Bottom right corner fold effect */}
-        <div className="absolute bottom-0 right-0 w-6 h-6 overflow-hidden">
-          <div className="absolute bottom-0 right-0 w-8 h-8 bg-background rotate-45 translate-x-4 translate-y-4 border-t border-l border-border/30" />
-        </div>
+    <article className="grid grid-cols-12 items-start gap-4 md:gap-8 py-6 md:py-8 border-b border-border/30">
+      <div className="col-span-2 md:col-span-1 font-mono text-[10px] uppercase tracking-[0.3em] text-accent/90 pt-1">
+        {signal.date}
       </div>
 
-      {/* Shadow/depth layer */}
-      <div className="absolute inset-0 -z-10 translate-x-1 translate-y-1 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="col-span-10 md:col-span-4">
+        <h3 className="font-[var(--font-bebas)] text-3xl md:text-4xl tracking-tight leading-none">{signal.title}</h3>
+      </div>
+
+      <p className="col-span-12 md:col-span-7 font-mono text-xs md:text-sm text-muted-foreground leading-relaxed md:pt-1">
+        {signal.note}
+      </p>
     </article>
   )
 }

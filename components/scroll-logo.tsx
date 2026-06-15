@@ -49,6 +49,9 @@ export function ScrollLogo() {
   const currentXPercent = startXPercent - (startXPercent - endXPercent) * easeProgress;
   const currentYPercent = startYPercent - (startYPercent - endYPercent) * easeProgress;
 
+  // Only show once user starts scrolling — invisible on page 1
+  const navOpacity = Math.min(Math.max((easeProgress - 0.25) / 0.35, 0), 1);
+
   return (
     <div
       className="fixed z-50 font-light text-white uppercase whitespace-nowrap pointer-events-auto cursor-pointer transition-none"
@@ -59,9 +62,10 @@ export function ScrollLogo() {
         letterSpacing: '0.15em',
         fontSize: 'clamp(0.9rem, 2vw, 1.5rem)',
         transformOrigin: 'center',
+        opacity: navOpacity,
       }}
     >
-      NEXUS
+      PARSMONARCH
     </div>
   );
 }
