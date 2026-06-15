@@ -73,16 +73,17 @@ export function ColophonSection() {
       id="colophon"
       className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30 overflow-hidden"
     >
-      {/* Gradient background with accent glow */}
+      {/* Immersive footer background */}
       <div className="absolute inset-0 pointer-events-none">
+        <img
+          src="/exp/footer.png"
+          alt="Colophon background"
+          className="absolute inset-0 h-full w-full object-cover opacity-40"
+        />
         <div
           className="absolute inset-0"
           style={{
-            background: `
-              radial-gradient(ellipse 900px 600px at 50% 0%, rgba(201, 168, 76, 0.14) 0%, transparent 70%),
-              radial-gradient(circle 700px at 10% 80%, rgba(0, 220, 200, 0.11) 0%, transparent 100%),
-              radial-gradient(circle 600px at 90% 40%, rgba(100, 140, 200, 0.09) 0%, transparent 100%)
-            `,
+            background: "linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 20%, transparent 80%, hsl(var(--background)) 100%)",
           }}
         />
       </div>

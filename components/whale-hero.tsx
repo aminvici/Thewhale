@@ -38,7 +38,7 @@ export function WhaleHero() {
       {/* User-provided whale art */}
       <img
         ref={imageRef}
-        src="/exp/Whale.jpeg"
+        src="/exp/Whale.png"
         alt="Parsmonarch whale"
         className="absolute inset-0 h-full w-full object-cover will-change-transform"
         style={{

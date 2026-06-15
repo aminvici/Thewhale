@@ -91,16 +91,17 @@ export function PrinciplesSection() {
 
   return (
     <section ref={sectionRef} id="principles" className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 overflow-hidden">
-      {/* Gradient background with geometric elements */}
+      {/* Immersive standard background */}
       <div className="absolute inset-0 pointer-events-none">
+        <img
+          src="/exp/standard.png"
+          alt="The Standard background"
+          className="absolute inset-0 h-full w-full object-cover opacity-30"
+        />
         <div
           className="absolute inset-0"
           style={{
-            background: `
-              radial-gradient(circle 800px at 20% 60%, rgba(90, 200, 200, 0.16) 0%, transparent 100%),
-              radial-gradient(circle 600px at 80% 20%, rgba(140, 100, 200, 0.13) 0%, transparent 100%),
-              linear-gradient(135deg, rgba(10, 20, 40, 0.5) 0%, transparent 50%, rgba(20, 10, 35, 0.4) 100%)
-            `,
+            background: "radial-gradient(ellipse at center, transparent 0%, hsl(var(--background)) 100%)",
           }}
         />
       </div>

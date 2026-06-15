@@ -126,11 +126,11 @@ export function SignalsSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/exp/parsmonarch_founder_page.png')",
+          backgroundImage: "url('/exp/updates.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
-          opacity: 0.22,
+          opacity: 0.25,
         }}
       />
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-background/40 to-background" />

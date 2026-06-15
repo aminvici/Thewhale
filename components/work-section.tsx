@@ -87,11 +87,11 @@ export function WorkSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/exp/parsmonarch_redesign.png')",
+          backgroundImage: "url('/exp/platform.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
-          opacity: 0.20,
+          opacity: 0.22,
         }}
       />
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/20 via-background/60 to-background" />
