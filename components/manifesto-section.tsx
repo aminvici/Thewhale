@@ -78,8 +78,8 @@ export function ManifestoSection() {
           alt=""
           fill
           unoptimized
-          className="object-cover object-center"
-          style={{ filter: "brightness(0.6) saturate(1.15)", opacity: 0.35 }}
+          className="bg-cover-fill"
+          style={{ filter: "brightness(0.6) saturate(1.15)", opacity: 0.35, objectPosition: "50% 46%" }}
         />
         <div
           className="absolute inset-0"

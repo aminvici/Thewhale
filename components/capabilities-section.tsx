@@ -102,8 +102,8 @@ export function CapabilitiesSection() {
             alt=""
             fill
             unoptimized
-            className="object-cover object-center"
-            style={{ filter: "brightness(0.58) saturate(1.2)" }}
+            className="bg-cover-fill"
+            style={{ filter: "brightness(0.58) saturate(1.2)", objectPosition: "50% 44%" }}
           />
         </div>
         <div className="absolute inset-x-0 top-0 h-44 pointer-events-none"
@@ -114,7 +114,7 @@ export function CapabilitiesSection() {
       </div>
 
       {/* Section label */}
-      <div className="relative z-10 pt-20 md:pt-28 pl-6 md:pl-32 pr-6 md:pr-16">
+      <div className="relative z-10 pt-8 md:pt-10 pl-6 md:pl-32 pr-6 md:pr-16">
         <div className="flex items-center gap-4">
           <div className="h-[1px] w-8 bg-accent/60" />
           <span className="font-mono text-xs uppercase tracking-[0.36em] text-accent/80">
@@ -129,9 +129,9 @@ export function CapabilitiesSection() {
           <div
             key={doc.num}
             data-doctrine
-            className={`group pl-6 md:pl-32 pr-6 md:pr-16 py-16 md:py-20 ${
+            className={`${
               i < doctrines.length - 1 ? "border-b border-border/20" : ""
-            }`}
+            } group pl-6 md:pl-32 pr-6 md:pr-16 py-5 md:py-6`}
           >
             {/* Number + rule */}
             <div className="flex items-center gap-5 mb-8">
@@ -151,7 +151,7 @@ export function CapabilitiesSection() {
             <h2
               data-doc-heading
               className="font-[family-name:var(--font-bebas)] tracking-tight leading-[0.92] text-foreground group-hover:text-accent transition-colors duration-500"
-              style={{ fontSize: "clamp(3.5rem, 9vw, 9.5rem)", whiteSpace: "pre-line" }}
+              style={{ fontSize: "clamp(2.4rem, 6vw, 7rem)", whiteSpace: "pre-line" }}
             >
               {doc.heading}
             </h2>

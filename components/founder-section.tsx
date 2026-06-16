@@ -91,8 +91,8 @@ export function FounderSection() {
           alt=""
           fill
           unoptimized
-          className="object-cover object-center"
-          style={{ filter: "brightness(0.65) saturate(1.2)", opacity: 0.85 }}
+          className="bg-cover-fill"
+          style={{ filter: "brightness(0.65) saturate(1.2)", opacity: 0.85, objectPosition: "50% 42%" }}
         />
         {/* Top + bottom seals */}
         <div className="absolute inset-x-0 top-0 h-32 pointer-events-none"
@@ -157,16 +157,15 @@ export function FounderSection() {
         {/* RIGHT — CEO portrait */}
         <div
           ref={imageRef}
-          className="relative md:w-[42%] shrink-0"
-          style={{ minHeight: "520px" }}
+          className="relative w-full md:w-[42%] h-[36svh] min-h-[280px] md:h-auto md:min-h-0 shrink-0"
         >
           <Image
             src="/brand/CEO.webp"
             alt="Sami Masudnia — Co-Founder & CEO, Parsmonarch"
             fill
             unoptimized
-            className="object-cover object-center"
-            style={{ filter: "brightness(0.88) saturate(1.1)" }}
+            className="bg-cover-fill"
+            style={{ filter: "brightness(0.88) saturate(1.1)", objectPosition: "58% center" }}
           />
 
           {/* Gradient blend left edge */}

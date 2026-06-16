@@ -52,10 +52,7 @@ export function SideNav() {
   }, [])
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+    window.dispatchEvent(new CustomEvent("parsm:goToSection", { detail: { id } }))
   }
 
   return (
