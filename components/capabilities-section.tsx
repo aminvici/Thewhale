@@ -7,98 +7,82 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
-const capabilities = [
+const doctrines = [
   {
-    id: "01",
-    title: "Private Settlement Rails",
-    description:
-      "Permissioned ledger infrastructure built to carry institutional-grade transaction finality. HyperLedger Fabric substrate with cryptographically enforced policy controls. No public mempool exposure.",
-    image: "/brand/1.1.webp",
-    tag: "Infrastructure Layer",
+    num: "01",
+    heading: "ACCESS IS\nEARNED.",
+    body: "No public onboarding. No self-service funnel. Engagement begins with institutional qualification — mandate, jurisdiction, and governance profile evaluated before any technical discussion.",
+    cta: "Request Qualification",
   },
   {
-    id: "02",
-    title: "Cross-Ledger Finality",
-    description:
-      "Deterministic bridge architecture enabling asset movement across XRP Ledger, Justitia DSiSc, and HyperLedger Fabric. Finality is guaranteed at the protocol layer — not approximated at application layer.",
-    image: "/brand/1.4.webp",
-    tag: "Bridge Protocol",
+    num: "02",
+    heading: "SETTLEMENT\nIS FINAL.",
+    body: "We do not approximate finality. Every state transition carries cryptographic certainty at the protocol layer. No probabilistic confirmation. No rollback risk. No appeals process.",
+    cta: "Explore Settlement Architecture",
   },
   {
-    id: "03",
-    title: "Institutional Governance",
-    description:
-      "Policy-driven access controls, multi-jurisdiction compliance frameworks, and cryptographic audit trails. Governance is sovereign to the institution — not outsourced to a DAO or committee.",
-    image: "/brand/IMG_6110.webp",
-    tag: "Governance Layer",
+    num: "03",
+    heading: "POLICY IS\nSOVEREIGN.",
+    body: "Your governance framework, enforced at the infrastructure layer. Not outsourced to a DAO, not shared with other institutions, not subject to external committee override.",
+    cta: "Understand Governance Layer",
+  },
+  {
+    num: "04",
+    heading: "BUILT FOR\nCENTURIES.",
+    body: "Decade-scale continuity. Operational restraint. We do not pivot with market cycles. Infrastructure that outlasts the institutions it serves is not a feature — it is the entire premise.",
+    cta: "Begin A Conversation",
   },
 ]
 
 export function CapabilitiesSection() {
   const sectionRef = useRef<HTMLElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
-  const cardsRef = useRef<HTMLDivElement>(null)
+  const statementsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!sectionRef.current) return
 
     const ctx = gsap.context(() => {
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current,
-          { x: -50, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        )
-      }
+      const items = statementsRef.current?.querySelectorAll("[data-doctrine]")
+      items?.forEach((item) => {
+        const num = item.querySelector("[data-doc-num]")
+        const heading = item.querySelector("[data-doc-heading]")
+        const body = item.querySelector("[data-doc-body]")
+        const line = item.querySelector("[data-doc-line]")
+        const cta = item.querySelector("[data-doc-cta]")
 
-      const cards = cardsRef.current?.querySelectorAll("[data-cap-card]")
-      if (cards && cards.length > 0) {
-        gsap.fromTo(
-          cards,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.9,
-            stagger: 0.15,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: cardsRef.current,
-              start: "top 88%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        )
-      }
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: item,
+            start: "top 78%",
+            toggleActions: "play none none reverse",
+          },
+        })
 
-      // Image parallax within each card
-      const images = cardsRef.current?.querySelectorAll("[data-cap-img]")
-      images?.forEach((img) => {
+        tl.fromTo(num, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease: "power3.out" })
+          .fromTo(line, { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.inOut" }, "-=0.3")
+          .fromTo(heading, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" }, "-=0.4")
+          .fromTo(body, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, "-=0.5")
+          .fromTo(cta, { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, "-=0.4")
+      })
+
+      // Background image subtle parallax
+      const bgImg = sectionRef.current?.querySelector("[data-bg-img]")
+      if (bgImg) {
         gsap.fromTo(
-          img,
-          { yPercent: -8 },
+          bgImg,
+          { yPercent: -6 },
           {
-            yPercent: 8,
+            yPercent: 6,
             ease: "none",
             scrollTrigger: {
-              trigger: img.closest("[data-cap-card]"),
+              trigger: sectionRef.current,
               start: "top bottom",
               end: "bottom top",
               scrub: 1.5,
             },
           }
         )
-      })
+      }
     }, sectionRef)
 
     return () => ctx.revert()
@@ -108,81 +92,94 @@ export function CapabilitiesSection() {
     <section
       ref={sectionRef}
       id="capabilities"
-      className="relative py-32 md:py-48 pl-6 md:pl-32 pr-6 md:pr-16 overflow-hidden"
+      className="relative overflow-hidden border-t border-border/20"
     >
-      {/* Section header */}
-      <div ref={headerRef} className="mb-20 flex items-end justify-between gap-8">
-        <div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.36em] text-accent/70">
-            01 / Capabilities
-          </span>
-          <h2
-            className="mt-4 font-[family-name:var(--font-bebas)] tracking-tight leading-none text-foreground"
-            style={{ fontSize: "clamp(3rem, 7vw, 7rem)" }}
-          >
-            WHAT WE PROVIDE
-          </h2>
+      {/* Full-bleed background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div data-bg-img className="absolute inset-[-8%]">
+          <Image
+            src="/brand/1.1.webp"
+            alt=""
+            fill
+            unoptimized
+            className="object-cover object-center"
+            style={{ filter: "brightness(0.55) saturate(1.2)" }}
+          />
         </div>
-        <p className="hidden md:block max-w-xs font-mono text-xs text-muted-foreground leading-relaxed text-right">
-          Three layers. No overlap. No gap. A complete settlement substrate for qualified
-          institutions.
-        </p>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, oklch(0.06 0.01 185) 0%, transparent 12%, transparent 88%, oklch(0.06 0.01 185) 100%)",
+            opacity: 0.82,
+          }}
+        />
+        {/* Deep overlay so text stays readable */}
+        <div className="absolute inset-0" style={{ background: "oklch(0.06 0.01 185 / 0.58)" }} />
       </div>
 
-      {/* Capability cards — 3-column grid */}
-      <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-border/30">
-        {capabilities.map((cap, i) => (
-          <article
-            key={cap.id}
-            data-cap-card
-            className={`group relative flex flex-col overflow-hidden ${
-              i < capabilities.length - 1 ? "md:border-r border-b md:border-b-0 border-border/30" : ""
+      {/* Section label */}
+      <div className="relative z-10 pt-20 md:pt-28 pl-6 md:pl-32 pr-6 md:pr-16">
+        <div className="flex items-center gap-4">
+          <div className="h-[1px] w-8 bg-accent/60" />
+          <span className="font-mono text-xs uppercase tracking-[0.36em] text-accent/80">
+            01 / Doctrine
+          </span>
+        </div>
+      </div>
+
+      {/* Doctrine statements */}
+      <div ref={statementsRef} className="relative z-10 pb-20 md:pb-28">
+        {doctrines.map((doc, i) => (
+          <div
+            key={doc.num}
+            data-doctrine
+            className={`group pl-6 md:pl-32 pr-6 md:pr-16 py-16 md:py-20 ${
+              i < doctrines.length - 1 ? "border-b border-border/20" : ""
             }`}
           >
-            {/* Image — top 55% of card */}
-            <div className="relative overflow-hidden" style={{ paddingBottom: "62%" }}>
-              <div data-cap-img className="absolute inset-[-10%]">
-                <Image
-                  src={cap.image}
-                  alt={cap.title}
-                  fill
-                  unoptimized
-                  className="object-cover object-center"
-                  style={{ filter: "brightness(0.68) saturate(1.2)" }}
-                />
-              </div>
-              {/* Overlay gradient */}
+            {/* Number + rule */}
+            <div className="flex items-center gap-5 mb-8">
+              <span
+                data-doc-num
+                className="font-mono text-xs uppercase tracking-[0.4em] text-accent"
+              >
+                {doc.num}
+              </span>
               <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(to bottom, transparent 40%, oklch(0.06 0.01 185) 100%)",
-                }}
+                data-doc-line
+                className="flex-1 max-w-[80px] h-[1px] bg-accent/40 origin-left"
               />
-              {/* ID label */}
-              <div className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-[0.3em] text-accent/70 border border-accent/20 px-2 py-1">
-                {cap.id}
-              </div>
-              {/* Tag */}
-              <div className="absolute top-4 right-4 font-mono text-[9px] uppercase tracking-[0.25em] text-muted-foreground/70 border border-border/40 px-2 py-1">
-                {cap.tag}
-              </div>
             </div>
 
-            {/* Content */}
-            <div className="flex flex-col flex-1 p-6 md:p-8 bg-card/20">
-              <h3
-                className="font-[family-name:var(--font-bebas)] tracking-tight leading-none text-foreground group-hover:text-accent transition-colors duration-400"
-                style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}
+            {/* Heading */}
+            <h2
+              data-doc-heading
+              className="font-[family-name:var(--font-bebas)] tracking-tight leading-[0.92] text-foreground group-hover:text-accent transition-colors duration-500"
+              style={{ fontSize: "clamp(3.5rem, 9vw, 9.5rem)", whiteSpace: "pre-line" }}
+            >
+              {doc.heading}
+            </h2>
+
+            {/* Body + CTA row */}
+            <div className="mt-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6 max-w-5xl">
+              <p
+                data-doc-body
+                className="font-mono text-sm text-muted-foreground leading-relaxed max-w-lg"
               >
-                {cap.title}
-              </h3>
-              <p className="mt-4 font-mono text-sm text-muted-foreground leading-relaxed flex-1">
-                {cap.description}
+                {doc.body}
               </p>
-              <div className="mt-6 h-[1px] w-8 bg-accent/40 group-hover:w-16 transition-all duration-500" />
+
+              <a
+                data-doc-cta
+                href="#colophon"
+                className="group/cta shrink-0 inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground/70 hover:border-accent hover:text-accent transition-all duration-300"
+              >
+                {doc.cta}
+                <span className="group-hover/cta:translate-x-1 transition-transform duration-300 text-accent">→</span>
+              </a>
             </div>
-          </article>
+          </div>
         ))}
       </div>
     </section>

@@ -95,7 +95,7 @@ export function SignalsSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/brand/1.2.webp')",
+          backgroundImage: "url('/brand/IMG_6110.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center 30%",
           opacity: 0.22,

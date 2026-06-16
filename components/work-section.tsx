@@ -120,7 +120,7 @@ export function WorkSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/brand/IMG_6111.webp')",
+          backgroundImage: "url('/brand/1.2.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center center",
           opacity: 0.18,

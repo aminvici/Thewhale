@@ -84,14 +84,24 @@ export function FounderSection() {
       id="founder"
       className="relative py-32 md:py-48 overflow-hidden border-t border-border/20"
     >
-      {/* Subtle atmosphere */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 70% 50%, oklch(0.12 0.03 185 / 0.4) 0%, transparent 70%)",
-        }}
-      />
+      {/* Full-bleed background — brand photo */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <Image
+          src="/brand/1.4.webp"
+          alt=""
+          fill
+          unoptimized
+          className="object-cover object-right"
+          style={{ filter: "brightness(0.52) saturate(1.15)", opacity: 0.6 }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, oklch(0.06 0.01 185) 0%, oklch(0.06 0.01 185 / 0.55) 45%, transparent 75%), linear-gradient(to bottom, oklch(0.06 0.01 185) 0%, transparent 15%, transparent 85%, oklch(0.06 0.01 185) 100%)",
+          }}
+        />
+      </div>
 
       <div className="relative z-10 flex flex-col md:flex-row items-stretch gap-0">
         {/* LEFT — text content */}
