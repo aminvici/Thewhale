@@ -73,21 +73,31 @@ export function ColophonSection() {
       id="colophon"
       className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30 overflow-hidden"
     >
-      {/* Immersive footer background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <img
-          src="/exp/footer.png"
-          alt="Colophon background"
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 20%, transparent 80%, hsl(var(--background)) 100%)",
-          }}
-        />
-      </div>
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/20 via-transparent to-background/40" />
+      {/* CEO Portrait - Sami Masudnia */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/exp/ceo.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          opacity: 0.18,
+        }}
+      />
+      
+      {/* Sponsor Portrait - Mo. Dehghan (loyalty layer) */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/exp/sponsor.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundBlendMode: "overlay",
+          opacity: 0.15,
+        }}
+      />
+      
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/40 via-background/60 to-background/85" />
 
       {/* Section header */}
       <div ref={headerRef} className="relative z-10 mb-16">
@@ -125,8 +135,9 @@ export function ColophonSection() {
           </p>
         </div>
         <div className="flex flex-col justify-end border-t border-border/30 pt-5 md:border-t-0 md:border-l md:pt-0 md:pl-8">
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Sami Johnson</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Sami Masudnia</p>
           <p className="mt-2 font-mono text-xs uppercase tracking-[0.22em] text-accent">Co-Founder & CEO</p>
+          <p className="mt-2 font-mono text-xs text-muted-foreground">Sponsored by Mo. Dehghan</p>
           <p className="mt-6 font-mono text-xs leading-relaxed text-muted-foreground">
             Parsmonarch is built for qualified institutional entities that require permanence, discretion, and governed settlement.
           </p>
@@ -215,10 +226,13 @@ export function ColophonSection() {
           <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Founded</h4>
           <ul className="space-y-3">
             <li className="font-[var(--font-bebas)] text-lg md:text-2xl text-foreground font-bold tracking-tight">
-              Sami Johnson
+              Sami Masudnia
             </li>
             <li className="font-mono text-sm md:text-base text-accent font-semibold uppercase tracking-widest">
               Co-Founder & CEO
+            </li>
+            <li className="font-mono text-xs text-muted-foreground mt-2">
+              Sponsored by Mo. Dehghan
             </li>
           </ul>
         </div>
