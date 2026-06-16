@@ -1,6 +1,15 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+
+interface Particle {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  radius: number;
+  baseAlpha: number;
+}
 
 export function KineticBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -14,8 +23,23 @@ export function KineticBackground() {
 
     let width = window.innerWidth;
     let height = window.innerHeight;
-    let particles: any[] = [];
+    let particles: Particle[] = [];
     let mouse = { x: -1000, y: -1000 };
+    let rafId = 0;
+
+    const createParticle = (): Particle => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.15,
+      vy: (Math.random() - 0.5) * 0.15,
+      radius: Math.random() * 1 + 0.3,
+      baseAlpha: Math.random() * 0.3 + 0.05,
+    });
+
+    const initParticles = () => {
+      const count = Math.min(Math.floor((width * height) / 20000), 60);
+      particles = Array.from({ length: count }, createParticle);
+    };
 
     const resize = () => {
       width = window.innerWidth;
@@ -25,77 +49,38 @@ export function KineticBackground() {
       initParticles();
     };
 
-    class Particle {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      radius: number;
-      baseAlpha: number;
+    const updateParticle = (p: Particle) => {
+      p.x += p.vx;
+      p.y += p.vy;
 
-      constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.15;
-        this.vy = (Math.random() - 0.5) * 0.15;
-        this.radius = Math.random() * 1 + 0.3;
-        this.baseAlpha = Math.random() * 0.3 + 0.05;
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+
+      const dx = mouse.x - p.x;
+      const dy = mouse.y - p.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 150 && dist > 0) {
+        const force = (150 - dist) / 150;
+        p.vx -= (dx / dist) * force * 0.015;
+        p.vy -= (dy / dist) * force * 0.015;
       }
 
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > width) this.vx *= -1;
-        if (this.y < 0 || this.y > height) this.vy *= -1;
-
-        // Mouse interaction - repel particles
-        const dx = mouse.x - this.x;
-        const dy = mouse.y - this.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < 150) {
-          const forceDirectionX = dx / distance;
-          const forceDirectionY = dy / distance;
-          const force = (150 - distance) / 150;
-          this.vx -= forceDirectionX * force * 0.015;
-          this.vy -= forceDirectionY * force * 0.015;
-        }
-
-        // Friction
-        this.vx *= 0.99;
-        this.vy *= 0.99;
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.baseAlpha})`;
-        ctx.fill();
-      }
-    }
-
-    const initParticles = () => {
-      particles = [];
-      const numParticles = Math.min(Math.floor((width * height) / 20000), 60);
-      for (let i = 0; i < numParticles; i++) {
-        particles.push(new Particle());
-      }
+      p.vx *= 0.99;
+      p.vy *= 0.99;
     };
 
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw connections between nearby particles
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 100) {
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 100) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(255, 255, 255, ${0.08 * (1 - distance / 100)})`;
+            ctx.strokeStyle = `rgba(255,255,255,${0.08 * (1 - dist / 100)})`;
             ctx.lineWidth = 0.4;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -105,30 +90,31 @@ export function KineticBackground() {
       }
 
       particles.forEach((p) => {
-        p.update();
-        p.draw();
+        updateParticle(p);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${p.baseAlpha})`;
+        ctx.fill();
       });
 
-      requestAnimationFrame(animate);
+      rafId = requestAnimationFrame(animate);
     };
 
+    const onMouseMove = (e: MouseEvent) => { mouse.x = e.clientX; mouse.y = e.clientY; };
+    const onMouseOut = () => { mouse.x = -1000; mouse.y = -1000; };
+
     window.addEventListener('resize', resize);
-    window.addEventListener('mousemove', (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    });
-    window.addEventListener('mouseout', () => {
-      mouse.x = -1000;
-      mouse.y = -1000;
-    });
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseout', onMouseOut);
 
     resize();
     animate();
 
     return () => {
+      cancelAnimationFrame(rafId);
       window.removeEventListener('resize', resize);
-      window.removeEventListener('mousemove', () => {});
-      window.removeEventListener('mouseout', () => {});
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseout', onMouseOut);
     };
   }, []);
 
@@ -136,7 +122,7 @@ export function KineticBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0 opacity-30"
-      style={{ background: 'transparent' }}
+      aria-hidden="true"
     />
   );
 }

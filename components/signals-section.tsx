@@ -113,7 +113,7 @@ export function SignalsSection() {
         <div className="flex items-center gap-4 mb-6">
           <div className="h-[1px] w-8 bg-accent/60" />
           <span className="font-mono text-[10px] uppercase tracking-[0.36em] text-accent/70">
-            03 / The Position
+            03 / By Appointment
           </span>
         </div>
         <h2

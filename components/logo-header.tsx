@@ -10,14 +10,15 @@ export function LogoHeader() {
   useEffect(() => {
     if (!logoRef.current) return
 
-    // Subtle floating animation on the logo
-    gsap.to(logoRef.current, {
+    const tween = gsap.to(logoRef.current, {
       y: -8,
       duration: 3,
       repeat: -1,
       yoyo: true,
       ease: "sine.inOut",
     })
+
+    return () => { tween.kill() }
   }, [])
 
   return (

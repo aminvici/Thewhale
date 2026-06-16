@@ -26,7 +26,7 @@ export default function Page() {
         {/* 2. Manifesto — pure typographic statement of purpose */}
         <ManifestoSection />
 
-        {/* 3. Capabilities — 3 columns with brand photos */}
+        {/* 3. Doctrine — 4-statement editorial scroll */}
         <CapabilitiesSection />
 
         {/* 4. Founder / CEO — portrait right, bio left */}

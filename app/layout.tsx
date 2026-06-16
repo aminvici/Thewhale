@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { IBM_Plex_Sans, IBM_Plex_Mono, Bebas_Neue } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import "./globals.css"
 
@@ -18,10 +17,23 @@ const ibmPlexMono = IBM_Plex_Mono({
 const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas" })
 
 export const metadata: Metadata = {
-  title: "PARSMONARCH — Institutional Data Sovereignty",
+  title: "PARSMONARCH — Private Institutional Infrastructure",
   description:
-    "Where enterprises settle their data in absolute certainty. Cryptographically governed infrastructure for institutional finality. By Sami Masudnia.",
-  generator: "v0.app",
+    "Private blockchain infrastructure by appointment only. Where sovereign institutions settle their data with cryptographic certainty. By Sami Masudnia.",
+  robots: { index: false, follow: false },
+  openGraph: {
+    title: "PARSMONARCH — Private Institutional Infrastructure",
+    description: "Private blockchain infrastructure by appointment only. Sovereign settlement rails for qualified institutional entities.",
+    url: "https://parsmonarch.com",
+    siteName: "PARSMONARCH",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PARSMONARCH — Private Institutional Infrastructure",
+    description: "Private blockchain infrastructure by appointment only.",
+  },
   icons: {
     icon: [
       {
@@ -53,7 +65,6 @@ export default function RootLayout({
       >
         <div className="noise-overlay" aria-hidden="true" />
         <SmoothScroll>{children}</SmoothScroll>
-        <Analytics />
       </body>
     </html>
   )
