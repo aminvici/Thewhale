@@ -122,7 +122,7 @@ export function HeroSection() {
       <div className="absolute left-6 md:left-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 z-10">
         <div className="h-24 w-[1px] bg-border/40" />
         <span
-          className="font-mono text-[9px] uppercase tracking-[0.35em] text-muted-foreground"
+          className="font-mono text-[11px] uppercase tracking-[0.35em] text-muted-foreground"
           style={{ writingMode: "vertical-rl", letterSpacing: "0.35em" }}
         >
           PARSMONARCH / 2026
@@ -195,7 +195,7 @@ export function HeroSection() {
 
       {/* Bottom-right tag */}
       <div className="absolute bottom-8 right-8 md:bottom-10 md:right-10 z-10">
-        <div className="border border-border/40 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70">
+        <div className="border border-border/40 px-5 py-3 font-mono text-xs uppercase tracking-[0.28em] text-muted-foreground">
           Co-Founded by Sami Masudnia
         </div>
       </div>
@@ -203,7 +203,7 @@ export function HeroSection() {
       {/* Bottom scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
         <div className="h-8 w-[1px] bg-border/30 animate-pulse" />
-        <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground/50">
+        <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
           Scroll
         </span>
       </div>

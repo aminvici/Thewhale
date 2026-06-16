@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 const navItems = [
@@ -61,16 +60,9 @@ export function SideNav() {
 
   return (
     <nav className="fixed left-0 top-0 z-50 h-screen w-16 md:w-20 hidden md:flex flex-col border-r border-border/30 bg-background/80 backdrop-blur-sm">
-      {/* Logo at top */}
+      {/* Top accent — crown lives in LogoHeader, nav just shows a thin line */}
       <div className="flex items-center justify-center pt-6 pb-8 border-b border-border/30">
-        <Image
-          src="/parsmonarch-logo.png"
-          alt="Parsmonarch"
-          width={60}
-          height={60}
-          className="w-14 h-14 opacity-90 hover:opacity-100 transition-opacity"
-          priority
-        />
+        <div className="h-6 w-[1px] bg-accent/50" />
       </div>
 
       {/* Navigation items */}
@@ -85,7 +77,7 @@ export function SideNav() {
             />
             <span
               className={cn(
-                "absolute left-6 font-mono text-[10px] uppercase tracking-widest opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:left-8 whitespace-nowrap",
+                "absolute left-6 font-mono text-xs uppercase tracking-widest opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:left-8 whitespace-nowrap",
                 activeSection === id ? "text-accent" : "text-muted-foreground",
               )}
             >

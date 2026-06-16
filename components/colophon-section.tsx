@@ -229,55 +229,60 @@ export function ColophonSection() {
       {/* Footer grid */}
       <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-border/20 pt-12">
         <div>
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+          <h4 className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
             Infrastructure
           </h4>
           <ul className="space-y-2">
             {["Sovereignty", "Governance", "Finality"].map((item) => (
-              <li key={item} className="font-mono text-xs text-foreground/60">
+              <li key={item} className="font-mono text-sm text-foreground/75">
                 {item}
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+          <h4 className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
             Institutional
           </h4>
           <ul className="space-y-2">
             {["Enterprise", "Compliance", "Trust"].map((item) => (
-              <li key={item} className="font-mono text-xs text-foreground/60">
+              <li key={item} className="font-mono text-sm text-foreground/75">
                 {item}
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+          <h4 className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
             Contact
           </h4>
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             <li>
               <a
                 href="mailto:contact@parsmonarch.com"
-                className="font-mono text-xs text-foreground/60 hover:text-accent transition-colors duration-200"
+                className="font-mono text-sm text-foreground/75 hover:text-accent transition-colors duration-200"
               >
                 contact@parsmonarch.com
               </a>
             </li>
+            <li className="font-mono text-sm text-muted-foreground leading-snug">
+              Market St<br />
+              San Francisco, CA 94105<br />
+              United States
+            </li>
           </ul>
         </div>
         <div>
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+          <h4 className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
             Founded
           </h4>
           <p
             className="font-[family-name:var(--font-bebas)] text-foreground tracking-tight"
-            style={{ fontSize: "1.4rem" }}
+            style={{ fontSize: "1.6rem" }}
           >
             Sami Masudnia
           </p>
-          <p className="mt-1 font-mono text-xs text-accent uppercase tracking-widest">
+          <p className="mt-1 font-mono text-sm text-accent uppercase tracking-widest">
             Co-Founder &amp; CEO
           </p>
         </div>
@@ -288,10 +293,10 @@ export function ColophonSection() {
         ref={footerRef}
         className="relative z-10 mt-16 pt-6 border-t border-border/15 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
       >
-        <p className="font-mono text-[10px] text-muted-foreground/50 uppercase tracking-widest">
+        <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
           © 2026 PARSMONARCH. All rights reserved. Private infrastructure.
         </p>
-        <p className="font-mono text-[10px] text-muted-foreground/50">
+        <p className="font-mono text-xs text-muted-foreground">
           Institutional finality. Cryptographic certainty. Sovereign governance.
         </p>
       </div>
