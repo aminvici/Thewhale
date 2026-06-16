@@ -77,7 +77,7 @@ export function ColophonSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/exp/theme-05.webp')",
+          backgroundImage: "url('/exp/theme-04.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center 30%",
           backgroundRepeat: "no-repeat",
@@ -124,21 +124,21 @@ export function ColophonSection() {
           </p>
         </div>
         <div className="flex flex-col justify-end border-t border-border/30 pt-5 md:border-t-0 md:border-l md:pt-0 md:pl-8">
-          <div className="mb-5 flex items-center gap-3">
+          <div className="mb-6 flex items-center gap-4">
             <img
               src="/exp/ceo.webp"
               alt="Sami Masudnia"
-              className="h-16 w-16 rounded-xl border border-accent/40 object-cover shadow-[0_0_28px_rgba(34,211,238,0.22)]"
+              className="h-24 w-24 rounded-2xl border border-accent/40 object-cover shadow-[0_0_32px_rgba(34,211,238,0.26)]"
             />
             <img
               src="/exp/sponsor.webp"
               alt="Mo. Dehghan"
-              className="h-16 w-16 rounded-xl border border-amber-400/50 object-cover shadow-[0_0_28px_rgba(251,191,36,0.24)]"
+              className="h-24 w-24 rounded-2xl border border-amber-400/50 object-cover shadow-[0_0_32px_rgba(251,191,36,0.28)]"
             />
           </div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground">Sami Masudnia</p>
-          <p className="mt-2 font-mono text-xs uppercase tracking-[0.22em] text-accent">Co-Founder & CEO</p>
-          <p className="mt-2 font-mono text-xs text-cyan-300">
+          <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] text-foreground">Sami Masudnia</p>
+          <p className="mt-2 font-mono text-sm md:text-base uppercase tracking-[0.24em] text-accent">Co-Founder & CEO</p>
+          <p className="mt-3 font-mono text-xs md:text-sm text-cyan-200">
             Sponsored by <span className="font-semibold text-amber-300">Mo. Dehghan</span>
           </p>
           <p className="mt-6 font-mono text-xs leading-relaxed text-muted-foreground">
@@ -231,10 +231,10 @@ export function ColophonSection() {
             <li className="font-[var(--font-bebas)] text-lg md:text-2xl text-foreground font-bold tracking-tight">
               Sami Masudnia
             </li>
-            <li className="font-mono text-sm md:text-base text-accent font-semibold uppercase tracking-widest">
+            <li className="font-mono text-base md:text-lg text-accent font-semibold uppercase tracking-widest">
               Co-Founder & CEO
             </li>
-            <li className="font-mono text-xs text-cyan-300 mt-2">
+            <li className="font-mono text-sm md:text-base text-cyan-200 mt-2">
               Sponsored by <span className="font-semibold text-amber-300">Mo. Dehghan</span>
             </li>
           </ul>

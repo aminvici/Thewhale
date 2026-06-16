@@ -23,14 +23,14 @@ export function LogoHeader() {
   return (
     <div
       ref={logoRef}
-      className="fixed top-8 left-8 z-50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+      className="fixed top-6 left-6 z-50 opacity-0 hover:opacity-100 transition-opacity duration-300"
     >
       <Image
         src="/parsmonarch-logo.png"
         alt="Parsmonarch"
-        width={48}
-        height={48}
-        className="w-12 h-12 drop-shadow-lg"
+        width={72}
+        height={72}
+        className="w-16 h-16 md:w-18 md:h-18 drop-shadow-lg"
         priority
       />
     </div>

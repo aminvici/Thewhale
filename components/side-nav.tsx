@@ -64,9 +64,9 @@ export function SideNav() {
         <Image
           src="/parsmonarch-logo.png"
           alt="Parsmonarch"
-          width={40}
-          height={40}
-          className="w-10 h-10 opacity-90 hover:opacity-100 transition-opacity"
+          width={60}
+          height={60}
+          className="w-14 h-14 opacity-90 hover:opacity-100 transition-opacity"
           priority
         />
       </div>
