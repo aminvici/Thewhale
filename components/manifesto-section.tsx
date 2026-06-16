@@ -69,7 +69,7 @@ export function ManifestoSection() {
     <section
       ref={sectionRef}
       id="manifesto"
-      className="page-section flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-20 py-24 md:py-32"
+      className="page-section flex flex-col justify-center"
     >
       {/* Full-bleed background — moody brand photo */}
       <div className="absolute inset-0 pointer-events-none">
@@ -90,6 +90,7 @@ export function ManifestoSection() {
         />
       </div>
 
+      <div className="relative z-10 pl-6 md:pl-32 pr-6 md:pr-20 py-24 md:py-32">
 
       {/* Section label */}
       <div ref={labelRef} className="mb-16 flex items-center gap-4">
@@ -118,6 +119,7 @@ export function ManifestoSection() {
             </p>
           </div>
         ))}
+      </div>
       </div>
 
     </section>

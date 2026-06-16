@@ -82,7 +82,7 @@ export function FounderSection() {
     <section
       ref={sectionRef}
       id="founder"
-      className="page-section flex flex-col justify-center py-16 md:py-20 border-t border-border/20"
+      className="page-section flex flex-col justify-center border-t border-border/20"
     >
       {/* Full-bleed background — brand photo */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -104,11 +104,11 @@ export function FounderSection() {
           style={{ background: "linear-gradient(to right, oklch(0.06 0.01 185 / 0.75) 0%, transparent 55%)" }} />
       </div>
 
-      <div className="relative z-10 w-full flex flex-col md:flex-row items-stretch gap-0">
+      <div className="relative z-10 w-full flex flex-col md:flex-row items-stretch gap-0 py-16 md:py-20">
         {/* LEFT — text content */}
         <div
           ref={textRef}
-          className="flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-16 py-8 md:py-0 flex-1"
+          className="flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-16 flex-1"
         >
           <div data-founder-el className="mb-10 flex items-center gap-4">
             <div className="h-[1px] w-8 bg-accent/60" />

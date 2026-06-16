@@ -114,7 +114,7 @@ export function WorkSection() {
     <section
       ref={sectionRef}
       id="work"
-      className="page-section flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-16 py-24 md:py-28 border-t border-border/20"
+      className="page-section flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-16 py-10 md:py-12 border-t border-border/20"
     >
       {/* Atmospheric bg */}
       <div
@@ -174,7 +174,7 @@ export function WorkSection() {
             <div
               key={step.phase}
               data-step
-              className={`group relative grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-8 py-8 md:py-10 ${
+              className={`group relative grid grid-cols-1 md:grid-cols-[100px_1fr] gap-3 md:gap-6 py-3 md:py-4 ${
                 index < settlementFlow.length - 1 ? "border-b border-border/20" : ""
               }`}
             >
@@ -194,11 +194,11 @@ export function WorkSection() {
               <div>
                 <h3
                   className="font-[family-name:var(--font-bebas)] tracking-tight leading-none text-foreground group-hover:text-accent transition-colors duration-400 mb-3"
-                  style={{ fontSize: "clamp(1.8rem, 3.2vw, 3rem)" }}
+                  style={{ fontSize: "clamp(1.4rem, 2.4vw, 2.4rem)" }}
                 >
                   {step.title}
                 </h3>
-                <p className="font-mono text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                <p className="font-mono text-xs text-muted-foreground leading-relaxed max-w-2xl">
                   {step.description}
                 </p>
               </div>

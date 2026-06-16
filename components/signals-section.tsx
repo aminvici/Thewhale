@@ -89,7 +89,7 @@ export function SignalsSection() {
     <section
       id="signals"
       ref={sectionRef}
-      className="page-section flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-16 py-24 md:py-28 border-t border-border/20"
+      className="page-section flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-16 py-10 md:py-12 border-t border-border/20"
     >
       {/* Atmospheric background from brand image */}
       <div

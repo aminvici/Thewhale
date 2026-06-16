@@ -101,7 +101,7 @@ export function ColophonSection() {
     <section
       ref={sectionRef}
       id="colophon"
-      className="page-section flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-16 py-24 md:py-28 border-t border-border/20"
+      className="page-section-last flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-16 py-20 md:py-24 border-t border-border/20"
     >
       {/* Background — brand image at very low opacity */}
       <div
