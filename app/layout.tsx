@@ -20,7 +20,7 @@ const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--f
 export const metadata: Metadata = {
   title: "PARSMONARCH — Institutional Data Sovereignty",
   description:
-    "Where enterprises settle their data in absolute certainty. Cryptographically governed infrastructure for institutional finality. By Sami Johnson.",
+    "Where enterprises settle their data in absolute certainty. Cryptographically governed infrastructure for institutional finality. By Sami Masudnia.",
   generator: "v0.app",
   icons: {
     icon: [

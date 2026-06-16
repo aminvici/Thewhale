@@ -83,7 +83,7 @@ export function HeroSection() {
       {/* Floating info tag */}
       <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
         <div className="border border-border px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          Parsmonarch / Co-Founded by Sami Johnson
+          Parsmonarch / Co-Founded by Sami Masudnia
         </div>
       </div>
     </section>
