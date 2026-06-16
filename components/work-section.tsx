@@ -89,9 +89,10 @@ export function WorkSection() {
         style={{
           backgroundImage: "url('/exp/theme-03.webp')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-          opacity: 0.22,
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "scroll",
+          opacity: 0.25,
         }}
       />
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/20 via-background/60 to-background" />

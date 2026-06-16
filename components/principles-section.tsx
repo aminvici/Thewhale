@@ -97,9 +97,10 @@ export function PrinciplesSection() {
         style={{
           backgroundImage: "url('/exp/theme-04.webp')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-          opacity: 0.2,
+          backgroundPosition: "center 35%",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "scroll",
+          opacity: 0.24,
         }}
       />
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/10 via-transparent to-background" />

@@ -128,9 +128,10 @@ export function SignalsSection() {
         style={{
           backgroundImage: "url('/exp/theme-02.webp')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-          opacity: 0.22,
+          backgroundPosition: "center top",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "scroll",
+          opacity: 0.26,
         }}
       />
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-background/40 to-background" />

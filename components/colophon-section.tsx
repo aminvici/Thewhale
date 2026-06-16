@@ -79,9 +79,10 @@ export function ColophonSection() {
         style={{
           backgroundImage: "url('/exp/theme-05.webp')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-          opacity: 0.2,
+          backgroundPosition: "center 30%",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "scroll",
+          opacity: 0.24,
         }}
       />
       
@@ -123,9 +124,23 @@ export function ColophonSection() {
           </p>
         </div>
         <div className="flex flex-col justify-end border-t border-border/30 pt-5 md:border-t-0 md:border-l md:pt-0 md:pl-8">
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Sami Masudnia</p>
+          <div className="mb-5 flex items-center gap-3">
+            <img
+              src="/exp/ceo.webp"
+              alt="Sami Masudnia"
+              className="h-16 w-16 rounded-xl border border-accent/40 object-cover shadow-[0_0_28px_rgba(34,211,238,0.22)]"
+            />
+            <img
+              src="/exp/sponsor.webp"
+              alt="Mo. Dehghan"
+              className="h-16 w-16 rounded-xl border border-amber-400/50 object-cover shadow-[0_0_28px_rgba(251,191,36,0.24)]"
+            />
+          </div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground">Sami Masudnia</p>
           <p className="mt-2 font-mono text-xs uppercase tracking-[0.22em] text-accent">Co-Founder & CEO</p>
-          <p className="mt-2 font-mono text-xs text-muted-foreground">Sponsored by Mo. Dehghan</p>
+          <p className="mt-2 font-mono text-xs text-cyan-300">
+            Sponsored by <span className="font-semibold text-amber-300">Mo. Dehghan</span>
+          </p>
           <p className="mt-6 font-mono text-xs leading-relaxed text-muted-foreground">
             Parsmonarch is built for qualified institutional entities that require permanence, discretion, and governed settlement.
           </p>
@@ -219,8 +234,8 @@ export function ColophonSection() {
             <li className="font-mono text-sm md:text-base text-accent font-semibold uppercase tracking-widest">
               Co-Founder & CEO
             </li>
-            <li className="font-mono text-xs text-muted-foreground mt-2">
-              Sponsored by Mo. Dehghan
+            <li className="font-mono text-xs text-cyan-300 mt-2">
+              Sponsored by <span className="font-semibold text-amber-300">Mo. Dehghan</span>
             </li>
           </ul>
         </div>
