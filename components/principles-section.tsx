@@ -95,7 +95,7 @@ export function PrinciplesSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/exp/standard.png')",
+          backgroundImage: "url('/exp/theme-04.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",

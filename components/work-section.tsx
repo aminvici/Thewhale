@@ -87,7 +87,7 @@ export function WorkSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/exp/platform.png')",
+          backgroundImage: "url('/exp/theme-03.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",

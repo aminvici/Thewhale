@@ -126,7 +126,7 @@ export function SignalsSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/exp/updates.png')",
+          backgroundImage: "url('/exp/theme-02.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",

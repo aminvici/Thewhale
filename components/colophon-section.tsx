@@ -77,7 +77,7 @@ export function ColophonSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/exp/footer.png')",
+          backgroundImage: "url('/exp/theme-05.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
