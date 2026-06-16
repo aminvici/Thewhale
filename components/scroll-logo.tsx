@@ -60,7 +60,7 @@ export function ScrollLogo() {
         left: `${currentLeft}vw`,
         transform: `translate(${currentXPercent}%, ${currentYPercent}%) scale(${currentScale})`,
         letterSpacing: '0.15em',
-        fontSize: 'clamp(0.9rem, 2vw, 1.5rem)',
+        fontSize: 'clamp(1.2rem, 2.6vw, 2rem)',
         transformOrigin: 'center',
         opacity: navOpacity,
       }}

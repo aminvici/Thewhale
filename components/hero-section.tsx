@@ -69,41 +69,51 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative h-screen flex items-center overflow-hidden"
     >
       <AnimatedNoise opacity={0.025} />
 
-      {/* Full-bleed hero background — brand photo */}
+      {/* Full-bleed hero background — highest-quality brand photo */}
       <div className="absolute inset-0 pointer-events-none">
         <Image
-          src="/brand/1.1.webp"
+          src="/brand/IMG_6109.webp"
           alt="Parsmonarch infrastructure"
           fill
           priority
           unoptimized
           className="object-cover object-center"
-          style={{ filter: "brightness(0.42) saturate(1.1)" }}
+          style={{ filter: "brightness(0.62) saturate(1.15)" }}
         />
 
-        {/* Deep color-grade overlay */}
+        {/* Subtle emerald tint */}
         <div
           ref={overlayRef}
           className="absolute inset-0"
           style={{
-            background: [
-              "radial-gradient(ellipse 80% 60% at 55% 38%, rgba(10,180,130,0.12) 0%, transparent 65%)",
-              "linear-gradient(to bottom, rgba(2,8,18,0.55) 0%, rgba(3,12,22,0.72) 100%)",
-            ].join(", "),
-            opacity: 0.7,
+            background:
+              "radial-gradient(ellipse 80% 60% at 55% 38%, rgba(10,200,140,0.10) 0%, transparent 65%)",
+            opacity: 0.65,
           }}
         />
 
-        {/* Edge vignette into page bg */}
+        {/* TOP seal — hard edge eliminated */}
+        <div
+          className="absolute inset-x-0 top-0 h-44 pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, oklch(0.06 0.01 185) 0%, transparent 100%)" }}
+        />
+
+        {/* BOTTOM seal — hard edge eliminated */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-52 pointer-events-none"
+          style={{ background: "linear-gradient(to top, oklch(0.06 0.01 185) 0%, transparent 100%)" }}
+        />
+
+        {/* Side darkening */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 90% 70% at 50% 50%, transparent 30%, oklch(0.06 0.01 185) 100%)",
+              "linear-gradient(to right, oklch(0.06 0.01 185 / 0.65) 0%, transparent 20%, transparent 80%, oklch(0.06 0.01 185 / 0.65) 100%)",
           }}
         />
       </div>
@@ -157,7 +167,7 @@ export function HeroSection() {
         {/* Manifesto line */}
         <p
           data-hero-el
-          className="mt-10 max-w-sm font-mono text-xs text-muted-foreground leading-relaxed"
+          className="mt-10 max-w-sm font-mono text-sm text-muted-foreground leading-relaxed"
         >
           Where empires settle their data. Infrastructure for those who cannot settle for
           less. By invitation only.

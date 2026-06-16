@@ -1,0 +1,8 @@
+$ next start
+▲ Next.js 16.2.9
+- Local:         http://localhost:3000
+- Network:       http://173.249.27.213:3000
+✓ Ready in 3.2s
+Error: Failed to find Server Action "x". This request might be from an older or newer deployment.
+Read more: https://nextjs.org/docs/messages/failed-to-find-server-action
+    at ignore-listed frames

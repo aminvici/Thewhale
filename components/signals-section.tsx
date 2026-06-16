@@ -98,7 +98,7 @@ export function SignalsSection() {
           backgroundImage: "url('/brand/1.2.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center 30%",
-          opacity: 0.07,
+          opacity: 0.22,
         }}
       />
       <div
@@ -153,7 +153,7 @@ export function SignalsSection() {
             </div>
 
             {/* Description */}
-            <p className="col-span-12 md:col-span-7 font-mono text-[11px] md:text-xs text-muted-foreground leading-relaxed md:pt-1">
+            <p className="col-span-12 md:col-span-7 font-mono text-sm text-muted-foreground leading-relaxed md:pt-1">
               {signal.note}
             </p>
           </article>

@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import Image from "next/image"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -70,6 +71,25 @@ export function ManifestoSection() {
       id="manifesto"
       className="relative py-40 md:py-56 pl-6 md:pl-32 pr-6 md:pr-20 overflow-hidden"
     >
+      {/* Full-bleed background — moody brand photo */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/brand/1.2.webp"
+          alt=""
+          fill
+          unoptimized
+          className="object-cover object-center"
+          style={{ filter: "brightness(0.55) saturate(1.1)", opacity: 0.22 }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, oklch(0.06 0.01 185) 0%, transparent 18%, transparent 82%, oklch(0.06 0.01 185) 100%)",
+          }}
+        />
+      </div>
+
       {/* Horizontal rule top */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-border/20" />
 
@@ -94,7 +114,7 @@ export function ManifestoSection() {
             </span>
             <p
               className="font-[family-name:var(--font-bebas)] leading-none tracking-tight text-foreground/90 group-hover:text-accent transition-colors duration-500"
-              style={{ fontSize: "clamp(2rem, 5.5vw, 5rem)" }}
+              style={{ fontSize: "clamp(2.4rem, 6.5vw, 6.5rem)" }}
             >
               {line}
             </p>

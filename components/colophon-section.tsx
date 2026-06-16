@@ -110,7 +110,7 @@ export function ColophonSection() {
           backgroundImage: "url('/brand/IMG_6111.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center 40%",
-          opacity: 0.06,
+          opacity: 0.18,
         }}
       />
       <div
@@ -141,7 +141,7 @@ export function ColophonSection() {
 
       {/* CTA block */}
       <div ref={ctaRef} className="relative z-10 mb-24">
-        <p data-cta-el className="max-w-xl font-mono text-sm text-muted-foreground leading-relaxed mb-8">
+        <p data-cta-el className="max-w-xl font-mono text-base text-muted-foreground leading-relaxed mb-8">
           Parsmonarch is built for qualified institutional entities that require permanence,
           discretion, and governed settlement. Engagement begins with a private mandate review.
           All correspondence is treated with institutional confidentiality.

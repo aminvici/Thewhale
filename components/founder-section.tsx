@@ -155,7 +155,7 @@ export function FounderSection() {
             fill
             unoptimized
             className="object-cover object-center"
-            style={{ filter: "brightness(0.72) saturate(1.1)" }}
+            style={{ filter: "brightness(0.88) saturate(1.1)" }}
           />
 
           {/* Gradient blend left edge */}

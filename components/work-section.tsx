@@ -120,10 +120,10 @@ export function WorkSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/exp/theme-01.webp')",
+          backgroundImage: "url('/brand/IMG_6111.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center center",
-          opacity: 0.06,
+          opacity: 0.18,
         }}
       />
       <div
@@ -198,7 +198,7 @@ export function WorkSection() {
                 >
                   {step.title}
                 </h3>
-                <p className="font-mono text-[11px] md:text-xs text-muted-foreground leading-relaxed max-w-2xl">
+                <p className="font-mono text-sm text-muted-foreground leading-relaxed max-w-2xl">
                   {step.description}
                 </p>
               </div>

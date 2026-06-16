@@ -13,7 +13,7 @@ const capabilities = [
     title: "Private Settlement Rails",
     description:
       "Permissioned ledger infrastructure built to carry institutional-grade transaction finality. HyperLedger Fabric substrate with cryptographically enforced policy controls. No public mempool exposure.",
-    image: "/brand/1.4.webp",
+    image: "/brand/1.1.webp",
     tag: "Infrastructure Layer",
   },
   {
@@ -21,7 +21,7 @@ const capabilities = [
     title: "Cross-Ledger Finality",
     description:
       "Deterministic bridge architecture enabling asset movement across XRP Ledger, Justitia DSiSc, and HyperLedger Fabric. Finality is guaranteed at the protocol layer — not approximated at application layer.",
-    image: "/brand/IMG_6109.webp",
+    image: "/brand/1.4.webp",
     tag: "Bridge Protocol",
   },
   {
@@ -148,7 +148,7 @@ export function CapabilitiesSection() {
                   fill
                   unoptimized
                   className="object-cover object-center"
-                  style={{ filter: "brightness(0.45) saturate(1.15)" }}
+                  style={{ filter: "brightness(0.68) saturate(1.2)" }}
                 />
               </div>
               {/* Overlay gradient */}
@@ -177,7 +177,7 @@ export function CapabilitiesSection() {
               >
                 {cap.title}
               </h3>
-              <p className="mt-4 font-mono text-[11px] text-muted-foreground leading-relaxed flex-1">
+              <p className="mt-4 font-mono text-sm text-muted-foreground leading-relaxed flex-1">
                 {cap.description}
               </p>
               <div className="mt-6 h-[1px] w-8 bg-accent/40 group-hover:w-16 transition-all duration-500" />
