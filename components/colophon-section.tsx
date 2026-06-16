@@ -1,6 +1,8 @@
 "use client"
 
 import { useRef, useEffect } from "react"
+import Image from "next/image"
+import { ScrambleTextOnHover } from "@/components/scramble-text"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -9,58 +11,86 @@ gsap.registerPlugin(ScrollTrigger)
 export function ColophonSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
-  const gridRef = useRef<HTMLDivElement>(null)
+  const ctaRef = useRef<HTMLDivElement>(null)
+  const founderRef = useRef<HTMLDivElement>(null)
   const footerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!sectionRef.current) return
 
     const ctx = gsap.context(() => {
-      // Header slide in
       if (headerRef.current) {
-        gsap.from(headerRef.current, {
-          x: -60,
-          opacity: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: headerRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        })
+        gsap.fromTo(
+          headerRef.current,
+          { x: -50, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        )
       }
 
-      // Grid columns fade up with stagger
-      if (gridRef.current) {
-        const columns = gridRef.current.querySelectorAll(":scope > div")
-        gsap.from(columns, {
-          y: 40,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: gridRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        })
+      if (ctaRef.current) {
+        const els = ctaRef.current.querySelectorAll("[data-cta-el]")
+        gsap.fromTo(
+          els,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ctaRef.current,
+              start: "top 88%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        )
       }
 
-      // Footer fade in
+      if (founderRef.current) {
+        gsap.fromTo(
+          founderRef.current,
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: founderRef.current,
+              start: "top 88%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        )
+      }
+
       if (footerRef.current) {
-        gsap.from(footerRef.current, {
-          y: 20,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: "top 95%",
-            toggleActions: "play none none reverse",
-          },
-        })
+        gsap.fromTo(
+          footerRef.current,
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: footerRef.current,
+              start: "top 95%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        )
       }
     }, sectionRef)
 
@@ -71,185 +101,199 @@ export function ColophonSection() {
     <section
       ref={sectionRef}
       id="colophon"
-      className="relative min-h-screen py-24 md:py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30 overflow-hidden"
+      className="relative py-32 md:py-48 pl-6 md:pl-32 pr-6 md:pr-16 overflow-hidden border-t border-border/20"
     >
-      {/* Page 05 background */}
+      {/* Background — brand image at very low opacity */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/exp/theme-04.webp')",
+          backgroundImage: "url('/brand/IMG_6111.webp')",
           backgroundSize: "cover",
-          backgroundPosition: "center 30%",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "scroll",
-          opacity: 0.24,
+          backgroundPosition: "center 40%",
+          opacity: 0.06,
         }}
       />
-      
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/40 via-background/60 to-background/85" />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, oklch(0.06 0.01 185) 0%, transparent 20%, transparent 80%, oklch(0.06 0.01 185) 100%)",
+        }}
+      />
 
       {/* Section header */}
-      <div ref={headerRef} className="relative z-10 mb-16">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">04 / Get in Touch</span>
-        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">ESTABLISH YOUR SEAT</h2>
+      <div ref={headerRef} className="relative z-10 mb-20">
+        <div className="flex items-center gap-4 mb-6">
+          <div className="h-[1px] w-8 bg-accent/60" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.36em] text-accent/70">
+            05 / Contact
+          </span>
+        </div>
+        <h2
+          className="font-[family-name:var(--font-bebas)] tracking-tight leading-none text-foreground"
+          style={{ fontSize: "clamp(3rem, 7vw, 7rem)" }}
+        >
+          BEGIN A
+          <br />
+          <span className="text-accent/80">CONVERSATION</span>
+        </h2>
       </div>
 
-      {/* CTA */}
-      <div className="relative z-10 mb-20 flex flex-col items-start gap-6">
-        <p className="max-w-xl font-mono text-sm text-muted-foreground leading-relaxed">
-          Join enterprises building on institutional data infrastructure. Parsmonarch is built for organizations where data finality is non-negotiable.
+      {/* CTA block */}
+      <div ref={ctaRef} className="relative z-10 mb-24">
+        <p data-cta-el className="max-w-xl font-mono text-sm text-muted-foreground leading-relaxed mb-8">
+          Parsmonarch is built for qualified institutional entities that require permanence,
+          discretion, and governed settlement. Engagement begins with a private mandate review.
+          All correspondence is treated with institutional confidentiality.
         </p>
-        <div className="flex flex-wrap items-center gap-4">
+
+        <div data-cta-el className="flex flex-wrap items-center gap-4">
           <a
             href="mailto:contact@parsmonarch.com"
-            className="inline-flex items-center border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200"
+            className="group inline-flex items-center gap-3 border border-accent/40 bg-accent/5 px-7 py-4 font-mono text-xs uppercase tracking-widest text-accent hover:bg-accent/10 hover:border-accent transition-all duration-300"
           >
-            Contact Us
+            <ScrambleTextOnHover text="contact@parsmonarch.com" as="span" duration={0.55} />
+            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
           </a>
-          <a
-            href="#"
-            className="inline-flex items-center px-6 py-3 font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200"
+        </div>
+
+        {/* Large accent statement */}
+        <div data-cta-el className="mt-16 border-l-2 border-accent/40 pl-6">
+          <p
+            className="font-[family-name:var(--font-bebas)] text-muted-foreground/40 leading-tight"
+            style={{ fontSize: "clamp(1.5rem, 3.5vw, 3.5rem)" }}
           >
-            Learn More
-          </a>
+            Infrastructure-grade conversations only.
+            <br />
+            No demos. No trials. No timelines.
+          </p>
         </div>
       </div>
 
-      {/* Founder statement */}
-      <div className="relative z-10 mb-20 grid gap-8 rounded-2xl border border-border/40 bg-background/70 p-6 md:grid-cols-[1.4fr_0.9fr] md:p-10 backdrop-blur-sm">
-        <div className="space-y-5">
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">Founder Note</span>
-          <p className="max-w-4xl font-[var(--font-bebas)] text-3xl md:text-5xl tracking-tight leading-[1.08] text-foreground">
-            We did not build for this cycle, nor the next. We laid the floor that sovereign institutions will still be standing on a century from now.
-          </p>
-        </div>
-        <div className="flex flex-col justify-end border-t border-border/30 pt-5 md:border-t-0 md:border-l md:pt-0 md:pl-8">
-          <div className="mb-6 flex items-center gap-4">
-            <img
-              src="/exp/ceo.webp"
-              alt="Sami Masudnia"
-              className="h-24 w-24 rounded-2xl border border-accent/40 object-cover shadow-[0_0_32px_rgba(34,211,238,0.26)]"
-            />
-            <img
-              src="/exp/sponsor.webp"
-              alt="Mo. Dehghan"
-              className="h-24 w-24 rounded-2xl border border-amber-400/50 object-cover shadow-[0_0_32px_rgba(251,191,36,0.28)]"
-            />
+      {/* Founder + Sponsor block */}
+      <div
+        ref={founderRef}
+        className="relative z-10 mb-20 border border-border/30 bg-background/30"
+      >
+        <div className="grid md:grid-cols-[1fr_auto] gap-0">
+          {/* Left — founder statement */}
+          <div className="p-8 md:p-12">
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent/60 block mb-5">
+              Founder Note
+            </span>
+            <p
+              className="font-[family-name:var(--font-bebas)] text-foreground leading-snug"
+              style={{ fontSize: "clamp(1.5rem, 3vw, 3rem)" }}
+            >
+              We did not build for this cycle, nor the next. We laid the floor that
+              sovereign institutions will still be standing on a century from now.
+            </p>
+            <div className="mt-8 pt-6 border-t border-border/20">
+              <p className="font-mono text-xs uppercase tracking-[0.3em] text-foreground">
+                Sami Masudnia
+              </p>
+              <p className="mt-1 font-mono text-xs uppercase tracking-[0.24em] text-accent">
+                Co-Founder &amp; CEO
+              </p>
+            </div>
           </div>
-          <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] text-foreground">Sami Masudnia</p>
-          <p className="mt-2 font-mono text-sm md:text-base uppercase tracking-[0.24em] text-accent">Co-Founder & CEO</p>
-          <p className="mt-3 font-mono text-xs md:text-sm text-cyan-200">
-            Sponsored by <span className="font-semibold text-amber-300">Mo. Dehghan</span>
-          </p>
-          <p className="mt-6 font-mono text-xs leading-relaxed text-muted-foreground">
-            Parsmonarch is built for qualified institutional entities that require permanence, discretion, and governed settlement.
-          </p>
+
+          {/* Right — sponsor portrait */}
+          <div
+            className="relative shrink-0 border-l border-border/30"
+            style={{ width: "220px", minHeight: "280px" }}
+          >
+            <Image
+              src="/brand/Sponser.webp"
+              alt="Mo. Dehghan — Sponsor"
+              fill
+              unoptimized
+              className="object-cover object-center"
+              style={{ filter: "brightness(0.6) saturate(1.0)" }}
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: "linear-gradient(to right, oklch(0.06 0.01 185) 0%, transparent 30%)",
+              }}
+            />
+            <div className="absolute bottom-4 left-4 right-4">
+              <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-foreground/70 border border-border/40 bg-background/60 px-3 py-2">
+                Sponsored by Mo. Dehghan
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Multi-column layout */}
-      <div ref={gridRef} className="relative z-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-12">
-        {/* Infrastructure */}
-        <div className="col-span-1">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Infrastructure</h4>
+      {/* Footer grid */}
+      <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-border/20 pt-12">
+        <div>
+          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            Infrastructure
+          </h4>
           <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">Sovereignty</li>
-            <li className="font-mono text-xs text-foreground/80">Governance</li>
-            <li className="font-mono text-xs text-foreground/80">Finality</li>
+            {["Sovereignty", "Governance", "Finality"].map((item) => (
+              <li key={item} className="font-mono text-xs text-foreground/60">
+                {item}
+              </li>
+            ))}
           </ul>
         </div>
-
-        {/* Institutional */}
-        <div className="col-span-1">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Institutional</h4>
+        <div>
+          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            Institutional
+          </h4>
           <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">Enterprise</li>
-            <li className="font-mono text-xs text-foreground/80">Compliance</li>
-            <li className="font-mono text-xs text-foreground/80">Trust</li>
+            {["Enterprise", "Compliance", "Trust"].map((item) => (
+              <li key={item} className="font-mono text-xs text-foreground/60">
+                {item}
+              </li>
+            ))}
           </ul>
         </div>
-
-        {/* Technical */}
-        <div className="col-span-1">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Technical</h4>
-          <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">Documentation</li>
-            <li className="font-mono text-xs text-foreground/80">API</li>
-            <li className="font-mono text-xs text-foreground/80">Architecture</li>
-          </ul>
-        </div>
-
-        {/* Company */}
-        <div className="col-span-1">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Company</h4>
-          <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">About</li>
-            <li className="font-mono text-xs text-foreground/80">Team</li>
-            <li className="font-mono text-xs text-foreground/80">Mission</li>
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div className="col-span-1">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Contact</h4>
+        <div>
+          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            Contact
+          </h4>
           <ul className="space-y-2">
             <li>
               <a
                 href="mailto:contact@parsmonarch.com"
-                className="font-mono text-xs text-foreground/80 hover:text-accent transition-colors duration-200"
+                className="font-mono text-xs text-foreground/60 hover:text-accent transition-colors duration-200"
               >
                 contact@parsmonarch.com
               </a>
             </li>
-            <li>
-              <a
-                href="#"
-                className="font-mono text-xs text-foreground/80 hover:text-accent transition-colors duration-200"
-              >
-                Twitter/X
-              </a>
-            </li>
           </ul>
         </div>
-
-        {/* Business */}
-        <div className="col-span-1 md:col-span-2">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Business Address</h4>
-          <address className="not-italic font-mono text-xs leading-relaxed text-foreground/80">
-            Market St
-            <br />
-            San Francisco, CA 94105
-            <br />
-            US
-          </address>
-        </div>
-
-        {/* Founders */}
-        <div className="col-span-1 md:col-span-2">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Founded</h4>
-          <ul className="space-y-3">
-            <li className="font-[var(--font-bebas)] text-lg md:text-2xl text-foreground font-bold tracking-tight">
-              Sami Masudnia
-            </li>
-            <li className="font-mono text-base md:text-lg text-accent font-semibold uppercase tracking-widest">
-              Co-Founder & CEO
-            </li>
-            <li className="font-mono text-sm md:text-base text-cyan-200 mt-2">
-              Sponsored by <span className="font-semibold text-amber-300">Mo. Dehghan</span>
-            </li>
-          </ul>
+        <div>
+          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            Founded
+          </h4>
+          <p
+            className="font-[family-name:var(--font-bebas)] text-foreground tracking-tight"
+            style={{ fontSize: "1.4rem" }}
+          >
+            Sami Masudnia
+          </p>
+          <p className="mt-1 font-mono text-xs text-accent uppercase tracking-widest">
+            Co-Founder &amp; CEO
+          </p>
         </div>
       </div>
 
       {/* Bottom copyright */}
       <div
         ref={footerRef}
-        className="relative z-10 mt-24 pt-8 border-t border-border/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+        className="relative z-10 mt-16 pt-6 border-t border-border/15 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
       >
-        <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
-          © 2026 Parsmonarch. All rights reserved.
+        <p className="font-mono text-[10px] text-muted-foreground/50 uppercase tracking-widest">
+          © 2026 PARSMONARCH. All rights reserved. Private infrastructure.
         </p>
-        <p className="font-mono text-[10px] text-muted-foreground">Institutional finality. Cryptographic certainty.</p>
+        <p className="font-mono text-[10px] text-muted-foreground/50">
+          Institutional finality. Cryptographic certainty. Sovereign governance.
+        </p>
       </div>
     </section>
   )

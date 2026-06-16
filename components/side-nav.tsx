@@ -6,10 +6,12 @@ import { cn } from "@/lib/utils"
 
 const navItems = [
   { id: "hero", label: "Home" },
-  { id: "signals", label: "Manifesto" },
+  { id: "manifesto", label: "Position" },
+  { id: "capabilities", label: "Capabilities" },
+  { id: "founder", label: "Founder" },
+  { id: "signals", label: "By Appointment" },
   { id: "work", label: "Settlement Path" },
-  { id: "principles", label: "Why Parsmonarch" },
-  { id: "colophon", label: "Get Started" },
+  { id: "colophon", label: "Contact" },
 ]
 
 export function SideNav() {

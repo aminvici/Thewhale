@@ -133,6 +133,25 @@
 
 /* Custom selection color */
 ::selection {
-  background: oklch(0.7 0.2 45);
-  color: oklch(0.08 0 0);
+  background: oklch(0.68 0.22 175 / 0.4);
+  color: oklch(0.95 0.01 160);
+}
+
+/* Custom cursor */
+* {
+  cursor: crosshair;
+}
+a, button, [role="button"] {
+  cursor: crosshair;
+}
+
+/* Transition durations not in Tailwind v4 defaults */
+.duration-400 {
+  transition-duration: 400ms;
+}
+
+/* Section vertical rhythm */
+.section-gap {
+  padding-top: clamp(6rem, 12vw, 14rem);
+  padding-bottom: clamp(6rem, 12vw, 14rem);
 }
