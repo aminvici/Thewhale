@@ -90,21 +90,18 @@ export function PrinciplesSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="principles" className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 overflow-hidden">
+    <section ref={sectionRef} id="principles" className="relative min-h-screen py-24 md:py-32 pl-6 md:pl-28 pr-6 md:pr-12 overflow-hidden">
       {/* Immersive standard background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <img
-          src="/exp/standard.png"
-          alt="The Standard background"
-          className="absolute inset-0 h-full w-full object-cover opacity-30"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "radial-gradient(ellipse at center, transparent 0%, hsl(var(--background)) 100%)",
-          }}
-        />
-      </div>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/exp/standard.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          opacity: 0.2,
+        }}
+      />
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/10 via-transparent to-background" />
 
       {/* Section header */}

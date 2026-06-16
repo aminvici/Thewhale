@@ -82,7 +82,7 @@ export function WorkSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="work" className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 overflow-hidden">
+    <section ref={sectionRef} id="work" className="relative min-h-screen py-24 md:py-32 pl-6 md:pl-28 pr-6 md:pr-12 overflow-hidden">
       {/* Background image with overlay */}
       <div
         className="absolute inset-0 pointer-events-none"

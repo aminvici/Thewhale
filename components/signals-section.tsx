@@ -121,7 +121,7 @@ export function SignalsSection() {
   }, [])
 
   return (
-    <section id="signals" ref={sectionRef} className="relative py-32 pl-6 md:pl-28 overflow-hidden">
+    <section id="signals" ref={sectionRef} className="relative min-h-screen py-24 md:py-32 pl-6 md:pl-28 overflow-hidden">
       {/* Background image with overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -130,7 +130,7 @@ export function SignalsSection() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
-          opacity: 0.25,
+          opacity: 0.22,
         }}
       />
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-background/40 to-background" />

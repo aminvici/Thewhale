@@ -71,29 +71,17 @@ export function ColophonSection() {
     <section
       ref={sectionRef}
       id="colophon"
-      className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30 overflow-hidden"
+      className="relative min-h-screen py-24 md:py-32 pl-6 md:pl-28 pr-6 md:pr-12 border-t border-border/30 overflow-hidden"
     >
-      {/* CEO Portrait - Sami Masudnia */}
+      {/* Page 05 background */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/exp/ceo.webp')",
+          backgroundImage: "url('/exp/footer.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
-          opacity: 0.18,
-        }}
-      />
-      
-      {/* Sponsor Portrait - Mo. Dehghan (loyalty layer) */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: "url('/exp/sponsor.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundBlendMode: "overlay",
-          opacity: 0.15,
+          opacity: 0.2,
         }}
       />
       
