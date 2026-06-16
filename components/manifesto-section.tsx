@@ -90,8 +90,6 @@ export function ManifestoSection() {
         />
       </div>
 
-      {/* Horizontal rule top */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-border/20" />
 
       {/* Section label */}
       <div ref={labelRef} className="mb-16 flex items-center gap-4">
@@ -122,8 +120,6 @@ export function ManifestoSection() {
         ))}
       </div>
 
-      {/* Bottom rule */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-border/20" />
     </section>
   )
 }

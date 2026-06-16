@@ -82,7 +82,7 @@ export function FounderSection() {
     <section
       ref={sectionRef}
       id="founder"
-      className="page-section flex flex-col justify-center border-t border-border/20"
+      className="page-section flex flex-col justify-center py-16 md:py-20 border-t border-border/20"
     >
       {/* Full-bleed background — brand photo */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -91,19 +91,20 @@ export function FounderSection() {
           alt=""
           fill
           unoptimized
-          className="object-cover object-right"
-          style={{ filter: "brightness(0.6) saturate(1.2)", opacity: 0.75 }}
+          className="object-cover object-center"
+          style={{ filter: "brightness(0.65) saturate(1.2)", opacity: 0.85 }}
         />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to right, oklch(0.06 0.01 185) 0%, oklch(0.06 0.01 185 / 0.55) 45%, transparent 75%), linear-gradient(to bottom, oklch(0.06 0.01 185) 0%, transparent 15%, transparent 85%, oklch(0.06 0.01 185) 100%)",
-          }}
-        />
+        {/* Top + bottom seals */}
+        <div className="absolute inset-x-0 top-0 h-32 pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, oklch(0.06 0.01 185) 0%, transparent 100%)" }} />
+        <div className="absolute inset-x-0 bottom-0 h-32 pointer-events-none"
+          style={{ background: "linear-gradient(to top, oklch(0.06 0.01 185) 0%, transparent 100%)" }} />
+        {/* Light left scrim so text stays readable without hiding full photo */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: "linear-gradient(to right, oklch(0.06 0.01 185 / 0.75) 0%, transparent 55%)" }} />
       </div>
 
-      <div className="relative z-10 flex flex-col md:flex-row items-stretch gap-0">
+      <div className="relative z-10 w-full flex flex-col md:flex-row items-stretch gap-0">
         {/* LEFT — text content */}
         <div
           ref={textRef}

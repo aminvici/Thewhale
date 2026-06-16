@@ -121,7 +121,7 @@ export function KineticBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-30"
+      className="fixed inset-0 pointer-events-none z-0 opacity-15"
       aria-hidden="true"
     />
   );

@@ -21,6 +21,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
     lenisRef.current = lenis
 
+    // Wire Lenis scroll position into GSAP ScrollTrigger for entrance animations
     lenis.on("scroll", ScrollTrigger.update)
 
     gsap.ticker.add((time) => {
@@ -29,22 +30,9 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
     gsap.ticker.lagSmoothing(0)
 
-    // GSAP-driven page snap — fires when a page-section crosses 40% of viewport
-    // Uses lenis.scrollTo() so snap is smooth, not jarring
-    const snapTargets = document.querySelectorAll<HTMLElement>(".page-section")
-
-    snapTargets.forEach((section) => {
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top 40%",
-        onEnter: () => {
-          lenis.scrollTo(section, { duration: 1.0, easing: (t) => 1 - Math.pow(1 - t, 4) })
-        },
-        onEnterBack: () => {
-          lenis.scrollTo(section, { duration: 1.0, easing: (t) => 1 - Math.pow(1 - t, 4) })
-        },
-      })
-    })
+    // Page-feel is handled by CSS scroll-snap-type: y proximity on html.
+    // No GSAP snap triggers — they conflict when multiple sections cross the
+    // threshold simultaneously, breaking scroll on pages 1-3.
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill())

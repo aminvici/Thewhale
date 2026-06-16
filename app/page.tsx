@@ -17,8 +17,6 @@ export default function Page() {
       <ScrollLogo />
       <SideNav />
       <LogoHeader />
-      <div className="grid-bg fixed inset-0 opacity-[0.07]" aria-hidden="true" />
-
       <div className="relative z-10">
         {/* 1. Hero — fullscreen brand photo + split-flap PARSMONARCH */}
         <HeroSection />
