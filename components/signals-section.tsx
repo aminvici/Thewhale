@@ -89,7 +89,7 @@ export function SignalsSection() {
     <section
       id="signals"
       ref={sectionRef}
-      className="relative py-32 md:py-48 pl-6 md:pl-32 pr-6 md:pr-16 overflow-hidden border-t border-border/20"
+      className="page-section flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-16 py-24 md:py-28 border-t border-border/20"
     >
       {/* Atmospheric background from brand image */}
       <div
@@ -97,8 +97,8 @@ export function SignalsSection() {
         style={{
           backgroundImage: "url('/brand/IMG_6110.webp')",
           backgroundSize: "cover",
-          backgroundPosition: "center 30%",
-          opacity: 0.22,
+          backgroundPosition: "center center",
+          opacity: 0.32,
         }}
       />
       <div

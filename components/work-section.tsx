@@ -114,7 +114,7 @@ export function WorkSection() {
     <section
       ref={sectionRef}
       id="work"
-      className="relative py-32 md:py-48 pl-6 md:pl-32 pr-6 md:pr-16 overflow-hidden border-t border-border/20"
+      className="page-section flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-16 py-24 md:py-28 border-t border-border/20"
     >
       {/* Atmospheric bg */}
       <div
@@ -123,7 +123,7 @@ export function WorkSection() {
           backgroundImage: "url('/brand/1.2.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center center",
-          opacity: 0.18,
+          opacity: 0.28,
         }}
       />
       <div

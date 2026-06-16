@@ -69,7 +69,7 @@ export function ManifestoSection() {
     <section
       ref={sectionRef}
       id="manifesto"
-      className="relative py-40 md:py-56 pl-6 md:pl-32 pr-6 md:pr-20 overflow-hidden"
+      className="page-section flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-20 py-24 md:py-32"
     >
       {/* Full-bleed background — moody brand photo */}
       <div className="absolute inset-0 pointer-events-none">
@@ -79,7 +79,7 @@ export function ManifestoSection() {
           fill
           unoptimized
           className="object-cover object-center"
-          style={{ filter: "brightness(0.55) saturate(1.1)", opacity: 0.22 }}
+          style={{ filter: "brightness(0.6) saturate(1.15)", opacity: 0.35 }}
         />
         <div
           className="absolute inset-0"

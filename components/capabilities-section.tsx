@@ -92,30 +92,25 @@ export function CapabilitiesSection() {
     <section
       ref={sectionRef}
       id="capabilities"
-      className="relative overflow-hidden border-t border-border/20"
+      className="page-section border-t border-border/20"
     >
       {/* Full-bleed background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div data-bg-img className="absolute inset-[-8%]">
+      <div className="absolute inset-0 pointer-events-none">
+        <div data-bg-img className="absolute inset-0">
           <Image
             src="/brand/1.1.webp"
             alt=""
             fill
             unoptimized
             className="object-cover object-center"
-            style={{ filter: "brightness(0.55) saturate(1.2)" }}
+            style={{ filter: "brightness(0.58) saturate(1.2)" }}
           />
         </div>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, oklch(0.06 0.01 185) 0%, transparent 12%, transparent 88%, oklch(0.06 0.01 185) 100%)",
-            opacity: 0.82,
-          }}
-        />
-        {/* Deep overlay so text stays readable */}
-        <div className="absolute inset-0" style={{ background: "oklch(0.06 0.01 185 / 0.58)" }} />
+        <div className="absolute inset-x-0 top-0 h-44 pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, oklch(0.06 0.01 185) 0%, transparent 100%)" }} />
+        <div className="absolute inset-x-0 bottom-0 h-44 pointer-events-none"
+          style={{ background: "linear-gradient(to top, oklch(0.06 0.01 185) 0%, transparent 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "oklch(0.06 0.01 185 / 0.50)" }} />
       </div>
 
       {/* Section label */}

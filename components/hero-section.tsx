@@ -69,7 +69,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative h-screen flex items-center overflow-hidden"
+      className="page-section flex items-center"
     >
       <AnimatedNoise opacity={0.025} />
 

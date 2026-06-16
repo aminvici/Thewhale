@@ -80,7 +80,8 @@
   html {
     overflow-x: hidden;
     max-width: 100vw;
-    /* Apply scrollbar styles to html element */
+    /* Scroll-snap: proximity so content-heavy sections still scroll through */
+    scroll-snap-type: y proximity;
     scrollbar-width: thin;
     scrollbar-color: hsl(0, 0%, 24%) hsl(0, 0%, 8%);
   }
@@ -154,4 +155,23 @@ a, button, [role="button"] {
 .section-gap {
   padding-top: clamp(6rem, 12vw, 14rem);
   padding-bottom: clamp(6rem, 12vw, 14rem);
+}
+
+/* Full-viewport page sections — snap into view on all devices */
+.page-section {
+  min-height: 100svh;          /* svh = excludes mobile browser chrome */
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image helper — fills the section regardless of aspect ratio */
+.bg-cover-fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
 }

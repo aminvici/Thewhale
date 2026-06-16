@@ -82,7 +82,7 @@ export function FounderSection() {
     <section
       ref={sectionRef}
       id="founder"
-      className="relative py-32 md:py-48 overflow-hidden border-t border-border/20"
+      className="page-section flex flex-col justify-center border-t border-border/20"
     >
       {/* Full-bleed background — brand photo */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -92,7 +92,7 @@ export function FounderSection() {
           fill
           unoptimized
           className="object-cover object-right"
-          style={{ filter: "brightness(0.52) saturate(1.15)", opacity: 0.6 }}
+          style={{ filter: "brightness(0.6) saturate(1.2)", opacity: 0.75 }}
         />
         <div
           className="absolute inset-0"

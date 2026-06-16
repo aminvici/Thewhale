@@ -101,7 +101,7 @@ export function ColophonSection() {
     <section
       ref={sectionRef}
       id="colophon"
-      className="relative py-32 md:py-48 pl-6 md:pl-32 pr-6 md:pr-16 overflow-hidden border-t border-border/20"
+      className="page-section flex flex-col justify-center pl-6 md:pl-32 pr-6 md:pr-16 py-24 md:py-28 border-t border-border/20"
     >
       {/* Background — brand image at very low opacity */}
       <div
@@ -109,8 +109,8 @@ export function ColophonSection() {
         style={{
           backgroundImage: "url('/brand/IMG_6111.webp')",
           backgroundSize: "cover",
-          backgroundPosition: "center 40%",
-          opacity: 0.18,
+          backgroundPosition: "center center",
+          opacity: 0.28,
         }}
       />
       <div
